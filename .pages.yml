@@ -1,0 +1,64 @@
+
+media:
+  input: uploads
+  output: /li-guoqing-personal/uploads
+
+content:
+  - name: ideas
+    label: 思想
+    type: collection
+    path: content/ideas
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+      - name: summary
+        label: 内容简介
+        type: text
+      - name: body
+        label: 正文
+        type: rich-text
+
+  - name: articles
+    label: 文章
+    type: collection
+    path: content/articles
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+      - name: summary
+        label: 内容简介
+        type: text
+      - name: body
+        label: 正文
+        type: rich-text
+
+  - name: works
+    label: 作品
+    type: collection
+    path: content/works
+    fields:
+      - name: title
+        label: 作品名称
+        type: string
+        required: true
+      - name: date
+        label: 完成日期
+        type: date
+      - name: description
+        label: 作品介绍
+        type: text
+      - name: attachment
+        label: 作品文件
+        type: file
+        options:
+          categories: [document]
