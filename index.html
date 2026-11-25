@@ -69,9 +69,18 @@ button { font: inherit; }
   mix-blend-mode: screen;
 }
 
-body > *:not(#space):not(#mouse-light) {
+
+/* 页面主体层级：不再干扰弹窗和固定定位 */
+main, footer {
   position: relative;
   z-index: 2;
+}
+
+/* 文章弹窗必须固定在整个屏幕上方 */
+#articleModal {
+  position: fixed !important;
+  inset: 0;
+  z-index: 1000 !important;
 }
 
 /* ===== 导航 ===== */
@@ -728,6 +737,182 @@ footer {
     scroll-behavior: auto !important;
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
+  }
+}
+
+/* ===== 文章卡片视觉升级 ===== */
+
+.article-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: stretch;
+  gap: 22px;
+}
+
+.article-card {
+  min-height: 215px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding: 25px;
+  border: 1px solid rgba(120, 175, 255, .16);
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(87, 145, 255, .12),
+      transparent 55%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(22, 37, 69, .78),
+      rgba(9, 17, 35, .85)
+    );
+  backdrop-filter: blur(16px);
+  transition: .35s ease;
+}
+
+.article-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    #65c8ff,
+    #a58bff,
+    transparent
+  );
+  opacity: 0;
+  transition: .3s;
+}
+
+.article-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(101, 200, 255, .5);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.25),
+    0 0 25px rgba(74,151,255,.1);
+}
+
+.article-card:hover::after {
+  opacity: 1;
+}
+
+.article-card h3 {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: #edf4ff;
+}
+
+.article-card p {
+  color: #91a2c0;
+  font-size: 12px;
+  line-height: 1.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-date {
+  margin-top: auto;
+  padding-top: 20px;
+  color: #6e8db8;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ===== 文章阅读弹窗升级 ===== */
+
+#articleModal {
+  padding: 25px;
+  background: rgba(2, 5, 15, .86);
+  backdrop-filter: blur(16px);
+}
+
+#articleModal .modal-content {
+  width: min(820px, 100%);
+  max-height: 85vh;
+  padding: 42px;
+  border: 1px solid rgba(101, 200, 255, .25);
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      ellipse at 80% 0%,
+      rgba(76, 119, 255, .13),
+      transparent 55%
+    ),
+    #0d172b;
+  box-shadow:
+    0 25px 90px rgba(0,0,0,.55),
+    0 0 45px rgba(65, 140, 255, .1);
+}
+
+#articleModal .modal-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  padding: 4px 12px;
+  border: 1px solid rgba(135,177,255,.2);
+  border-radius: 8px;
+  background: rgba(13,23,43,.85);
+  color: #a8c4e8;
+}
+
+#articleModal .modal-body {
+  clear: both;
+  padding-top: 22px;
+  color: #bdcce2;
+  font-size: 14px;
+  line-height: 2.1;
+  overflow-wrap: anywhere;
+}
+
+#articleModal .modal-body h1,
+#articleModal .modal-body h2,
+#articleModal .modal-body h3 {
+  color: #eaf4ff;
+  margin: 26px 0 12px;
+  line-height: 1.5;
+}
+
+#articleModal .modal-body h1 {
+  font-size: 26px;
+}
+
+#articleModal .modal-body h2 {
+  font-size: 21px;
+  border-left: 2px solid #65c8ff;
+  padding-left: 12px;
+}
+
+#articleModal .modal-body h3 {
+  font-size: 17px;
+}
+
+#articleModal .modal-body strong {
+  color: #8dd7ff;
+}
+
+#articleModal .modal-body code {
+  color: #a9caff;
+  background: rgba(100,150,255,.12);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+@media(max-width:520px) {
+  #articleModal {
+    padding: 12px;
+  }
+
+  #articleModal .modal-content {
+    padding: 24px 19px;
+    max-height: 88vh;
   }
 }
 </style>
@@ -1479,12 +1664,27 @@ function renderArticles() {
     `;
   }).join("");
 
-  grid.querySelectorAll(".article-card").forEach(card => {
-    card.addEventListener("click", () => {
-      const article = filtered.find(a => a.name === card.dataset.name);
-      if (article) openArticle(article);
-    });
+grid.querySelectorAll(".article-card").forEach(card => {
+  const open = () => {
+    const index = Number(card.dataset.index);
+    const article = filtered[index];
+
+    if (article) openArticle(article);
+  };
+
+  card.addEventListener("click", open);
+
+  // 同时支持键盘回车和空格打开
+  card.setAttribute("tabindex", "0");
+  card.setAttribute("role", "button");
+
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      open();
+    }
   });
+});
 }
 
 function escapeHTML(value) {
