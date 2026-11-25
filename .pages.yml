@@ -1,64 +1,234 @@
-
 media:
   input: uploads
   output: /li-guoqing-personal/uploads
 
 content:
   - name: ideas
-    label: 思想
-    type: collection
-    path: content/ideas
-    fields:
-      - name: title
-        label: 标题
-        type: string
-        required: true
-      - name: date
-        label: 日期
-        type: date
-      - name: summary
-        label: 内容简介
-        type: text
-      - name: body
-        label: 正文
-        type: rich-text
+    label: 思想与探索
+    type: group
+    items:
+      - name: philosophy
+        label: 哲学与人生
+        type: collection
+        path: content/ideas
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-{primary}.md"
+        view:
+          primary: title
+          fields: [title, date, summary]
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+          - name: summary
+            label: 摘要
+            type: text
+          - name: body
+            label: 正文
+            type: rich-text
 
-  - name: articles
-    label: 文章
-    type: collection
-    path: content/articles
-    fields:
-      - name: title
-        label: 标题
-        type: string
-        required: true
-      - name: date
-        label: 日期
-        type: date
-      - name: summary
-        label: 内容简介
-        type: text
-      - name: body
-        label: 正文
-        type: rich-text
+      - name: economics
+        label: 经济与商业
+        type: collection
+        path: content/economics
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-{primary}.md"
+        view:
+          primary: title
+          fields: [title, date, summary]
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+          - name: summary
+            label: 摘要
+            type: text
+          - name: body
+            label: 正文
+            type: rich-text
+
+      - name: society
+        label: 社会与世界
+        type: collection
+        path: content/society
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-{primary}.md"
+        view:
+          primary: title
+          fields: [title, date, summary]
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+          - name: summary
+            label: 摘要
+            type: text
+          - name: body
+            label: 正文
+            type: rich-text
 
   - name: works
-    label: 作品
-    type: collection
-    path: content/works
-    fields:
-      - name: title
-        label: 作品名称
-        type: string
-        required: true
-      - name: date
-        label: 完成日期
-        type: date
-      - name: description
-        label: 作品介绍
-        type: text
-      - name: attachment
-        label: 作品文件
-        type: file
-        options:
-          categories: [document]
+    label: 作品与实践
+    type: group
+    items:
+      - name: research
+        label: 研究与分析
+        type: collection
+        path: content/research
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-{primary}.md"
+        view:
+          primary: title
+          fields: [title, date, summary]
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 作品名称
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+          - name: summary
+            label: 作品简介
+            type: text
+          - name: file
+            label: 作品文件（PDF、Word、Excel 等）
+            type: file
+            options:
+              extensions: [pdf, doc, docx, xls, xlsx, ppt, pptx, zip, txt, csv]
+          - name: url
+            label: 在线链接（可选）
+            type: string
+          - name: body
+            label: 详细介绍
+            type: rich-text
+
+      - name: writing
+        label: 文章与随笔
+        type: collection
+        path: content/articles
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-{primary}.md"
+        view:
+          primary: title
+          fields: [title, date, summary]
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 标题
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+          - name: summary
+            label: 摘要
+            type: text
+          - name: file
+            label: 附件（可选）
+            type: file
+            options:
+              extensions: [pdf, doc, docx, xls, xlsx, ppt, pptx, zip, txt, csv]
+          - name: body
+            label: 正文
+            type: rich-text
+
+      - name: digital
+        label: 数字项目
+        type: collection
+        path: content/digital
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-{primary}.md"
+        view:
+          primary: title
+          fields: [title, date, summary]
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 项目名称
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+          - name: summary
+            label: 项目简介
+            type: text
+          - name: url
+            label: 项目网址（可选）
+            type: string
+          - name: file
+            label: 项目文件（可选）
+            type: file
+            options:
+              extensions: [pdf, doc, docx, xls, xlsx, ppt, pptx, zip, txt, csv, html, js, css]
+          - name: body
+            label: 项目说明
+            type: rich-text
+
+      - name: notes
+        label: 学习档案
+        type: collection
+        path: content/notes
+        format: yaml-frontmatter
+        filename: "{year}-{month}-{day}-{primary}.md"
+        view:
+          primary: title
+          fields: [title, date, summary]
+          sort: [date, title]
+          default:
+            sort: date
+            order: desc
+        fields:
+          - name: title
+            label: 笔记名称
+            type: string
+            required: true
+          - name: date
+            label: 日期
+            type: date
+          - name: summary
+            label: 内容摘要
+            type: text
+          - name: file
+            label: 学习资料附件（可选）
+            type: file
+            options:
+              extensions: [pdf, doc, docx, xls, xlsx, ppt, pptx, zip, txt, csv]
+          - name: body
+            label: 笔记正文
+            type: rich-text
