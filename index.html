@@ -4,584 +4,1573 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f4f2eb">
-<title>李国庆｜学习、思考与创造</title>
-<meta name="description" content="李国庆的个人网站：记录思想探索与作品实践。一个不断学习、思考世界的人。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#070b16">
+<title>李国庆 | LI GUOQING</title>
+<meta name="description" content="一个不断学习、思考世界的人。思想、探索、作品与实践。">
 
 <style>
-:root{
---paper:#f4f2eb;--ink:#202a25;--muted:#68736b;
---green:#254b3b;--line:#d9ddd4;--lime:#d8e3b8;
---white:#fffefa;--serif:"Noto Serif SC",Georgia,serif;
---sans:"DM Sans","Microsoft YaHei",sans-serif;
---mono:"DM Mono",monospace
+:root {
+  --bg: #070b16;
+  --panel: rgba(15, 25, 48, .58);
+  --line: rgba(135, 177, 255, .16);
+  --text: #edf4ff;
+  --muted: #91a2c0;
+  --blue: #65c8ff;
+  --purple: #a58bff;
+  --glow: rgba(74, 151, 255, .22);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
 
-/* 星空背景 */
-#starfield{
-position:fixed;inset:0;width:100%;height:100%;
-z-index:0;pointer-events:none;opacity:.42
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+  overflow-x: hidden;
+  line-height: 1.7;
 }
-body>*:not(#starfield){position:relative;z-index:1}
 
-/* 导航 */
-.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-.brand{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.04em}
-.brand-mark{width:34px;height:34px;border-radius:50%;background:var(--green);color:#f4f2eb;display:grid;place-items:center;font-family:var(--serif);font-size:16px}
-.nav{display:flex;align-items:center;gap:28px;font-size:13px;color:#526057}
-.nav a:hover{color:var(--green)}
-.lang{border:1px solid var(--line);background:transparent;border-radius:30px;padding:8px 13px;font-size:12px;cursor:pointer}
+a { color: inherit; text-decoration: none; }
 
-/* 首屏 */
-.hero{min-height:620px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;padding:80px 0 90px;position:relative}
-.eyebrow,.kicker{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-h1{font-family:var(--serif);font-size:clamp(54px,8vw,100px);line-height:1.12;letter-spacing:-.06em;font-weight:500;margin:28px 0 22px}
-.hero-sub{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);color:var(--green);line-height:1.7;margin:0 0 18px}
-.hero-copy{max-width:480px;color:var(--muted);font-size:15px}
-.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:3px;font-size:13px;border:1px solid var(--green);transition:.25s}
-.btn.primary{background:var(--green);color:var(--white)}
-.btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px #243d2b18}
-.btn.secondary{color:var(--green)}
-.visual{height:410px;position:relative;display:grid;place-items:center;overflow:hidden}
-.orb{width:min(340px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 34% 28%,#eff0d7 0 7%,#b8c8a6 24%,#668875 51%,#254b3b 74%,#172e25 100%);box-shadow:inset -24px -28px 55px #14281d70,0 35px 70px #254b3b24;animation:float 8s ease-in-out infinite;position:relative}
-.orb:before,.orb:after{content:"";position:absolute;border:1px solid #55705e55;border-radius:50%;inset:-22px;transform:rotate(-24deg) scaleY(.35)}
-.orb:after{inset:-55px;transform:rotate(28deg) scaleY(.28);border-color:#8c9c7d80}
-.visual-note{position:absolute;right:2%;bottom:7%;font:10px var(--mono);letter-spacing:.12em;color:var(--muted)}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-17px) rotate(4deg)}}
-.scrollhint{position:absolute;bottom:28px;left:0;font:10px var(--mono);letter-spacing:.15em;color:var(--muted)}
+button { font: inherit; }
 
-/* 通用板块 */
-.section{padding:100px 0;border-top:1px solid var(--line)}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
-.section-no{font:11px var(--mono);color:var(--muted);letter-spacing:.12em}
-.section h2{font:500 clamp(32px,4vw,48px)/1.25 var(--serif);margin:12px 0 0;letter-spacing:-.04em}
-.section-intro{max-width:390px;color:var(--muted);font-size:14px;margin:0}
-.about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}
-.quote{font:500 25px/1.8 var(--serif);color:var(--green);margin:0}
-.about-text{max-width:650px;color:#59645d;font-size:15px}
-.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}
-.principle{padding:22px 20px;border:1px solid var(--line);min-height:145px;background:#ffffff38}
-.principle b{display:block;font:18px var(--serif);margin:15px 0 5px}
-.principle p{font-size:12px;color:var(--muted);margin:0}
-.tiny{font:10px var(--mono);color:#879187;letter-spacing:.1em}
-
-/* 卡片 */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--white);border:1px solid var(--line);padding:25px;min-height:240px;display:flex;flex-direction:column;transition:.25s}
-.card:hover{transform:translateY(-5px);box-shadow:0 16px 35px #203a2a10}
-.card-top{display:flex;justify-content:space-between;align-items:center}
-.tag{font:10px var(--mono);letter-spacing:.08em;color:var(--green);background:#e8eddf;padding:6px 9px;border-radius:2px}
-.card h3{font:500 21px var(--serif);margin:26px 0 9px}
-.card p{font-size:13px;color:var(--muted);margin:0}
-.card-foot{margin-top:auto;padding-top:24px;font:10px var(--mono);color:#89938a;letter-spacing:.1em}
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.work{padding:28px;background:#e9e9df;min-height:220px;display:flex;flex-direction:column}
-.work:nth-child(2){background:#e1e8dc}
-.work:nth-child(3){background:#e9e4d8}
-.work:nth-child(4){background:#e4e8e4}
-.work h3{font:500 23px var(--serif);margin:22px 0 8px}
-.work p{font-size:13px;color:#68736b;max-width:400px;margin:0}
-.work .status{margin-top:auto;padding-top:26px;font:10px var(--mono);letter-spacing:.1em;color:#6c796e}
-.interactive-card{cursor:pointer;position:relative}
-.interactive-card:focus-visible{outline:2px solid var(--green);outline-offset:4px}
-.interactive-card:after{content:"点击查看 ↗";position:absolute;right:20px;bottom:18px;font:10px var(--mono);letter-spacing:.06em;color:var(--green);opacity:.7}
-.entry.interactive-card:after{content:"查看 ↗";right:34px;bottom:25px}
-.category-card:after{content:"点击进入 ↗"}
-
-/* 文章与联系 */
-.journal{border-top:1px solid var(--line)}
-.entry{display:grid;grid-template-columns:150px 1fr 24px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
-.entry time{font:11px var(--mono);color:#879187}
-.entry h3{font:500 19px var(--serif);margin:0 0 5px}
-.entry p{font-size:12px;color:var(--muted);margin:0}
-.entry .arrow{color:var(--green);font-size:20px}
-.contact{background:var(--green);color:#f4f2eb;padding:75px 0;margin-top:20px}
-.contact .kicker{color:#b9c9b8}
-.contact h2{font:500 clamp(35px,5vw,58px)/1.35 var(--serif);margin:20px 0;max-width:700px}
-.contact p{color:#c6d0c6;font-size:14px}
-.contact .btn{border-color:#dce5d7;color:#f4f2eb;margin-top:15px}
-.footer{padding:26px 0;display:flex;justify-content:space-between;gap:15px;font:10px var(--mono);color:var(--muted);letter-spacing:.08em}
-
-/* 动画 */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:none}
-.cn{display:block}
-.en{display:none}
-.english .cn{display:none}
-.english .en{display:block}
-.english .nav .cn,.english .nav .en{display:inline}
-.english .hero-sub{font-family:var(--sans)}
-.english h1,.english .section h2,.english .quote,.english .card h3,.english .work h3,.english .entry h3,.english .contact h2{font-family:var(--serif)}
-
-/* 弹窗 */
-.modal-backdrop{position:fixed;inset:0;background:#101a15a6;display:none;align-items:center;justify-content:center;padding:22px;z-index:20}
-.modal-backdrop.open{display:flex}
-.modal{width:min(720px,100%);max-height:min(86vh,900px);overflow:auto;background:var(--paper);padding:34px;position:relative;box-shadow:0 24px 80px #0003}
-.modal h3{font:500 29px var(--serif);margin:10px 0 15px}
-.modal p{color:var(--muted);font-size:14px;line-height:1.9;white-space:pre-wrap}
-.modal-close{position:sticky;float:right;top:0;border:1px solid var(--line);background:var(--paper);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px;z-index:2}
-.modal-hint{font:10px var(--mono);letter-spacing:.12em;color:var(--muted)}
-.article-list{margin-top:48px}
-.article-list-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px}
-.article-list-head h3{font:500 24px var(--serif);margin:0}
-.article-list-head p{font-size:12px;color:var(--muted);margin:0}
-.article-row{display:grid;grid-template-columns:120px 1fr 24px;gap:24px;align-items:center;padding:22px 0;border-top:1px solid var(--line);cursor:pointer;transition:.2s}
-.article-row:last-child{border-bottom:1px solid var(--line)}
-.article-row:hover{padding-left:8px;color:var(--green)}
-.article-row time{font:11px var(--mono);color:#879187}
-.article-row h4{font:500 18px var(--serif);margin:0 0 5px}
-.article-row p{font-size:12px;color:var(--muted);margin:0}
-.article-arrow{font-size:20px;color:var(--green)}
-.load-message{padding:20px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
-.article-body{color:#48554c;font-size:15px;line-height:2}
-.article-body h1,.article-body h2,.article-body h3{font-family:var(--serif);color:var(--ink);line-height:1.5;margin:1.5em 0 .6em}
-.article-body h1{font-size:27px}
-.article-body h2{font-size:23px}
-.article-body h3{font-size:19px}
-.article-body p{color:#48554c;font-size:15px;line-height:2;white-space:normal;margin:0 0 1em}
-.article-body ul,.article-body ol{padding-left:1.5em}
-.article-body li{margin:.35em 0}
-.article-body blockquote{border-left:3px solid #9aaa8c;margin:1em 0;padding:.2em 1em;color:var(--muted)}
-.article-body code{font-family:var(--mono);font-size:.9em;background:#e8e8df;padding:2px 5px}
-.article-meta{font:11px var(--mono);color:#879187;letter-spacing:.08em;margin-bottom:22px}
-.resource-actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
-.resource-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--green);color:var(--green);font-size:12px;background:transparent}
-.resource-link:hover{background:var(--green);color:var(--white)}
-.empty-state{padding:22px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-
-/* 悬浮联系按钮 */
-.floating-contact{position:fixed;right:25px;bottom:25px;z-index:30}
-.contact-toggle{
-width:58px;height:58px;border:0;border-radius:50%;
-background:var(--green);color:white;font-size:23px;cursor:pointer;
-box-shadow:0 6px 25px #254b3b40;animation:contactPulse 2.5s infinite
+::selection {
+  background: rgba(101, 200, 255, .35);
+  color: white;
 }
-@keyframes contactPulse{
-0%,100%{box-shadow:0 6px 25px #254b3b40}
-50%{box-shadow:0 6px 30px #66887590}
-}
-.contact-popup{
-display:none;position:absolute;right:0;bottom:72px;width:270px;
-padding:22px;background:var(--white);color:var(--ink);
-border:1px solid var(--line);box-shadow:0 12px 35px #203a2a20;border-radius:10px
-}
-.contact-popup.open{display:block;animation:popupIn .25s ease}
-@keyframes popupIn{
-from{opacity:0;transform:translateY(10px)}
-to{opacity:1;transform:translateY(0)}
-}
-.contact-popup h3{font:500 19px var(--serif);margin:0 0 8px}
-.contact-popup p{color:var(--muted);font-size:12px;margin:0 0 15px}
-.contact-email{display:block;padding:11px;background:#e8eddf;color:var(--green);font-size:13px;text-align:center;overflow-wrap:anywhere}
 
-@media(max-width:800px){
-.nav{gap:13px}
-.nav a{display:none}
-.hero{grid-template-columns:1fr;gap:10px;padding:65px 0 80px}
-.visual{height:300px;grid-row:1}
-.hero-copy-wrap{grid-row:2}
-.orb{width:245px}
-.scrollhint{display:none}
-.about-grid{grid-template-columns:1fr;gap:28px}
-.cards{grid-template-columns:1fr 1fr}
-.principles{grid-template-columns:1fr}
-.section{padding:72px 0}
-.section-head{display:block}
-.section-intro{margin-top:20px}
-.work-grid{grid-template-columns:1fr 1fr}
+/* ===== 背景 ===== */
+
+#space {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
-@media(max-width:520px){
-.wrap{width:min(100% - 34px,1160px)}
-.topbar{height:66px}
-.cards,.work-grid{grid-template-columns:1fr}
-.card{min-height:205px}
-.entry{grid-template-columns:1fr 20px;gap:5px}
-.entry time{grid-column:1/-1;margin-bottom:6px}
-.entry h3{font-size:17px}
-.footer{flex-direction:column}
-.visual{height:260px}
-.hero{min-height:auto}
-.section-head{margin-bottom:32px}
-.article-row{grid-template-columns:1fr 20px;gap:5px}
-.article-row time{grid-column:1/-1}
-.article-row h4{font-size:16px}
-.modal{padding:24px 20px}
-.floating-contact{right:16px;bottom:18px}
+
+#mouse-light {
+  position: fixed;
+  width: 520px;
+  height: 520px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(69, 132, 255, .105) 0%,
+    rgba(105, 81, 255, .045) 35%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
 }
-@media(prefers-reduced-motion:reduce){
-*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
-.reveal{opacity:1;transform:none}
-.contact-toggle{animation:none}
+
+body > *:not(#space):not(#mouse-light) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== 导航 ===== */
+
+header {
+  position: fixed !important;
+  z-index: 20 !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(7, 11, 22, .62);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(130, 170, 255, .08);
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #eaf3ff;
+}
+
+.logo span { color: var(--blue); }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--blue); }
+
+.lang-btn {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.035);
+  color: var(--text);
+  border-radius: 30px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.lang-btn:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 18px var(--glow);
+}
+
+/* ===== 通用布局 ===== */
+
+.container {
+  width: min(1120px, 86%);
+  margin: auto;
+}
+
+section { padding: 110px 0; }
+
+.section-tag {
+  color: var(--blue);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 13px;
+}
+
+.section-title {
+  font-size: clamp(27px, 4vw, 42px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 650px;
+}
+
+/* ===== 首屏 ===== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  width: min(1120px, 86%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero-kicker {
+  color: var(--blue);
+  letter-spacing: 5px;
+  font-size: 11px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(44px, 7vw, 82px);
+  line-height: 1.12;
+  letter-spacing: 2px;
+  font-weight: 650;
+  min-height: 1.2em;
+}
+
+.hero h1 .highlight {
+  background: linear-gradient(100deg, #f0f6ff, #74d5ff, #a995ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  opacity: .65;
+  pointer-events: none;
+}
+
+.glitch::before {
+  color: #5bdcff;
+  transform: translateX(2px);
+  clip-path: inset(0 0 65% 0);
+  animation: glitchA 4s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: #a78bff;
+  transform: translateX(-2px);
+  clip-path: inset(65% 0 0 0);
+  animation: glitchB 3.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitchA {
+  0%, 90%, 100% { transform: translateX(0); }
+  92% { transform: translateX(4px); }
+  94% { transform: translateX(-3px); }
+  96% { transform: translateX(2px); }
+}
+
+@keyframes glitchB {
+  0%, 88%, 100% { transform: translateX(0); }
+  90% { transform: translateX(-4px); }
+  93% { transform: translateX(3px); }
+  96% { transform: translateX(-2px); }
+}
+
+.hero-subtitle {
+  margin-top: 26px;
+  color: #a8b9d5;
+  font-size: clamp(14px, 1.7vw, 17px);
+  letter-spacing: 2px;
+}
+
+.hero-description {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 480px;
+  margin-top: 17px;
+  line-height: 2;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+
+.primary-btn, .ghost-btn {
+  padding: 12px 23px;
+  border-radius: 30px;
+  font-size: 13px;
+  transition: .3s;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.primary-btn {
+  color: #06101e;
+  background: linear-gradient(110deg, #77d7ff, #9e9aff);
+  font-weight: 650;
+  box-shadow: 0 0 28px rgba(91, 180, 255, .18);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(91, 180, 255, .4);
+}
+
+.ghost-btn {
+  border: 1px solid var(--line);
+  color: #c5d6ef;
+  background: rgba(255,255,255,.025);
+}
+
+.ghost-btn:hover {
+  border-color: var(--blue);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ===== 3D 粒子星球 ===== */
+
+.planet-wrap {
+  width: 100%;
+  max-width: 510px;
+  aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: auto;
+}
+
+#planet {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 35px rgba(65, 151, 255, .16));
+}
+
+.planet-orbit {
+  position: absolute;
+  width: 83%;
+  height: 31%;
+  border: 1px solid rgba(111, 189, 255, .19);
+  border-radius: 50%;
+  transform: rotate(-27deg);
+  box-shadow: 0 0 20px rgba(84, 158, 255, .08);
+  pointer-events: none;
+}
+
+.planet-orbit.two {
+  width: 96%;
+  height: 44%;
+  transform: rotate(52deg);
+  border-color: rgba(167, 139, 255, .13);
+}
+
+/* ===== 关于 ===== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-top: 42px;
+}
+
+.about-text {
+  color: #a8b7d0;
+  font-size: 15px;
+  line-height: 2.1;
+}
+
+.about-quote {
+  padding: 30px;
+  border-left: 2px solid var(--blue);
+  background: linear-gradient(110deg, rgba(65, 130, 255, .09), transparent);
+  color: #dceaff;
+  font-size: 19px;
+  line-height: 1.9;
+}
+
+/* ===== 卡片 ===== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.card {
+  position: relative;
+  min-height: 205px;
+  padding: 27px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: linear-gradient(
+    145deg,
+    rgba(23, 39, 70, .67),
+    rgba(10, 17, 34, .62)
+  );
+  backdrop-filter: blur(15px);
+  overflow: hidden;
+  transition: transform .25s ease, border-color .3s, box-shadow .3s;
+  transform-style: preserve-3d;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(93, 174, 255, .13),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+
+.card:hover::before { opacity: 1; }
+
+.card:hover {
+  border-color: rgba(107, 193, 255, .48);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, .22),
+              0 0 25px rgba(71, 143, 255, .08);
+}
+
+.card-icon {
+  font-size: 25px;
+  margin-bottom: 19px;
+  color: var(--blue);
+}
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 550;
+  margin-bottom: 9px;
+}
+
+.card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.card-arrow {
+  position: absolute;
+  right: 25px;
+  bottom: 22px;
+  color: var(--blue);
+  font-size: 18px;
+  opacity: .65;
+}
+
+/* ===== 动态文章 ===== */
+
+.article-section { padding-top: 30px; }
+
+.article-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0 25px;
+}
+
+.filter-btn {
+  padding: 7px 15px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: transparent;
+  font-size: 12px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  color: #dff5ff;
+  border-color: var(--blue);
+  background: rgba(69, 153, 255, .12);
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.article-card {
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 23px;
+  background: rgba(16, 27, 49, .55);
+  cursor: pointer;
+  transition: .3s;
+  min-height: 175px;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(101, 200, 255, .5);
+  background: rgba(27, 44, 77, .68);
+}
+
+.article-category {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--blue);
+  margin-bottom: 13px;
+}
+
+.article-card h3 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.article-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.article-date {
+  color: #647895;
+  font-size: 10px;
+  margin-top: 17px;
+}
+
+.loading {
+  color: var(--muted);
+  font-size: 13px;
+  padding: 25px 0;
+}
+
+/* ===== 联系 ===== */
+
+.contact-box {
+  margin-top: 40px;
+  padding: 55px 30px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(68, 132, 255, .15), transparent 65%),
+    rgba(13, 23, 44, .65);
+}
+
+.contact-box h3 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.contact-box p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.email-link {
+  display: inline-block;
+  color: var(--blue);
+  border-bottom: 1px solid rgba(101, 200, 255, .35);
+  padding-bottom: 5px;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+/* ===== 页脚 ===== */
+
+footer {
+  border-top: 1px solid rgba(130, 170, 255, .1);
+  padding: 27px 7%;
+  text-align: center;
+  color: #657895;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ===== 联系悬浮按钮 ===== */
+
+.floating-contact {
+  position: fixed !important;
+  z-index: 30 !important;
+  right: 28px;
+  bottom: 28px;
+}
+
+.contact-toggle {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(123, 199, 255, .55);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1c5488, #34336f);
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(79, 160, 255, .3);
+  transition: .3s;
+}
+
+.contact-toggle:hover { transform: scale(1.1); }
+
+.contact-pop {
+  position: absolute;
+  right: 0;
+  bottom: 68px;
+  width: 245px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: rgba(12, 22, 43, .95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 15px 45px rgba(0,0,0,.35);
+  display: none;
+}
+
+.contact-pop.show { display: block; }
+
+.contact-pop strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.contact-pop p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+
+.contact-pop a {
+  color: var(--blue);
+  font-size: 12px;
+  word-break: break-all;
+}
+
+/* ===== 文章弹窗 ===== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(2, 5, 13, .82);
+  backdrop-filter: blur(12px);
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+  width: min(760px, 100%);
+  max-height: 82vh;
+  overflow-y: auto;
+  padding: 35px;
+  border: 1px solid rgba(115, 180, 255, .25);
+  border-radius: 16px;
+  background: #0d172b;
+  box-shadow: 0 0 60px rgba(60, 126, 255, .12);
+}
+
+.modal-close {
+  float: right;
+  background: transparent;
+  border: 0;
+  color: #9eb1ce;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  font-size: 25px;
+  margin: 20px 0;
+}
+
+.modal-body {
+  color: #bdcce2;
+  font-size: 14px;
+  line-height: 2;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.modal-body a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.modal-body img {
+  max-width: 100%;
+}
+
+/* ===== 滚动动画 ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 800px) {
+  header { padding: 15px 6%; }
+  nav { gap: 13px; }
+  nav a { font-size: 11px; }
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-description { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .planet-wrap { max-width: 340px; margin-top: 15px; }
+  .about-grid { grid-template-columns: 1fr; gap: 25px; }
+  .card-grid, .article-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  header { padding: 13px 5%; }
+  .logo { font-size: 12px; letter-spacing: 2px; }
+  nav { gap: 9px; }
+  nav a { font-size: 10px; }
+  .lang-btn { padding: 5px 9px; font-size: 10px; }
+  .container { width: 88%; }
+  section { padding: 80px 0; }
+  .hero { min-height: auto; padding: 145px 0 55px; }
+  .hero h1 { font-size: 45px; }
+  .hero-kicker { letter-spacing: 3px; }
+  .card-grid, .article-grid { grid-template-columns: 1fr; }
+  .card { min-height: 175px; }
+  .modal-content { padding: 22px; }
+  .floating-contact { right: 17px; bottom: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
-<canvas id="starfield" aria-hidden="true"></canvas>
 
-<header class="wrap topbar">
-<a class="brand" href="#home"><span class="brand-mark">李</span><span>LI GUOQING</span></a>
-<nav class="nav" aria-label="Main navigation">
-<a href="#about"><span class="cn">关于</span><span class="en">About</span></a>
-<a href="#ideas"><span class="cn">思想</span><span class="en">Ideas</span></a>
-<a href="#works"><span class="cn">作品</span><span class="en">Works</span></a>
-<button class="lang" id="langBtn" type="button" aria-label="Switch language">EN / 中文</button>
-</nav>
+<canvas id="space"></canvas>
+<div id="mouse-light"></div>
+
+<header>
+  <a class="logo" href="#home">LI <span>GUOQING</span></a>
+  <nav>
+    <a href="#about" data-zh="关于" data-en="About">关于</a>
+    <a href="#ideas" data-zh="思想" data-en="Ideas">思想</a>
+    <a href="#works" data-zh="作品" data-en="Works">作品</a>
+    <a href="#contact" data-zh="联系" data-en="Contact">联系</a>
+    <button class="lang-btn" id="langBtn">EN / 中</button>
+  </nav>
 </header>
 
 <main>
-<section class="wrap hero" id="home">
-<div class="hero-copy-wrap">
-<div class="eyebrow"><span class="cn">个人主页 · 持续探索中</span><span class="en">PERSONAL SPACE · ALWAYS EXPLORING</span></div>
-<h1>李国庆<span style="color:#9aaa8c">.</span></h1>
-<p class="hero-sub"><span class="cn">一个不断学习、思考世界的人。</span><span class="en">A lifelong learner, thinking about the world.</span></p>
-<p class="hero-copy"><span class="cn">学习不同领域的知识，尝试理解复杂的世界，并把思考转化为真实的作品。</span><span class="en">Exploring ideas across disciplines, making sense of a complex world, and turning reflection into meaningful work.</span></p>
-<div class="hero-actions">
-<a class="btn primary" href="#works"><span class="cn">浏览我的作品</span><span class="en">Explore my work</span><span>↗</span></a>
-<a class="btn secondary" href="#about"><span class="cn">认识这个空间</span><span class="en">About this space</span></a>
-</div>
-</div>
-<div class="visual" aria-label="Abstract green sphere illustration"><div class="orb"></div><div class="visual-note">LEARN / THINK / CREATE</div></div>
-<div class="scrollhint">SCROLL TO EXPLORE ↓</div>
+
+<!-- 首屏 -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div>
+      <div class="hero-kicker">PERSONAL SPACE · THINKING · EXPLORATION</div>
+      <h1>
+        <span class="glitch highlight" id="heroTitle"
+          data-text="李国庆">李国庆</span>
+      </h1>
+      <div class="hero-subtitle" id="heroSubtitle">
+        一个不断学习、思考世界的人。
+      </div>
+      <p class="hero-description" id="heroDescription">
+        在知识、思想与实践之间探索世界。
+        保持好奇，独立思考，并尝试理解事物背后的规律。
+      </p>
+      <div class="hero-actions">
+        <a class="primary-btn" href="#ideas" id="exploreBtn">探索我的思想 ↗</a>
+        <a class="ghost-btn" href="#works" id="worksBtn">查看我的作品</a>
+      </div>
+    </div>
+
+    <div class="planet-wrap">
+      <div class="planet-orbit"></div>
+      <div class="planet-orbit two"></div>
+      <canvas id="planet"></canvas>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="about"><div class="wrap">
-<div class="section-head reveal"><div><div class="section-no">01 / ABOUT</div><h2><span class="cn">关于这个空间</span><span class="en">A space for exploration</span></h2></div><p class="section-intro"><span class="cn">这里不试图给出一个固定的自我定义，而是展示持续学习、思考与创造的过程。</span><span class="en">Not a fixed definition of a person, but an evolving record of learning, reflection and creation.</span></p></div>
-<div class="about-grid reveal">
-<p class="quote"><span class="cn">“保持好奇，保持独立思考，保持行动。”</span><span class="en">“Stay curious. Think independently. Keep creating.”</span></p>
-<div><p class="about-text"><span class="cn">我对世界始终抱有好奇。知识不应只停留在阅读和记忆里，也应该帮助我们理解现实、提出问题，并尝试解决问题。这个网站是一个开放的个人档案：记录值得保存的想法，整理认真完成的作品，也记录认知不断变化的轨迹。</span><span class="en">I remain curious about the world. Knowledge should go beyond reading and memorization: it should help us understand reality, ask better questions and attempt useful work. This site is an evolving archive of ideas, projects and changing perspectives.</span></p></div>
-</div>
-<div class="principles reveal">
-<div class="principle"><span class="tiny">01 / CURIOSITY</span><b><span class="cn">保持好奇</span><span class="en">Stay curious</span></b><p><span class="cn">持续接触新的问题与领域。</span><span class="en">Keep exploring new questions and fields.</span></p></div>
-<div class="principle"><span class="tiny">02 / CLARITY</span><b><span class="cn">追求理解</span><span class="en">Seek clarity</span></b><p><span class="cn">不满足于结论，继续追问理由。</span><span class="en">Look beyond conclusions and ask why.</span></p></div>
-<div class="principle"><span class="tiny">03 / PRACTICE</span><b><span class="cn">知行合一</span><span class="en">Learn by doing</span></b><p><span class="cn">把想法变成实践与作品。</span><span class="en">Turn ideas into practice and work.</span></p></div>
-</div>
-</div></section>
+<!-- 关于 -->
+<section id="about">
+  <div class="container reveal">
+    <div class="section-tag">01 / ABOUT</div>
+    <h2 class="section-title" data-zh="关于这个空间" data-en="About This Space">
+      关于这个空间
+    </h2>
+    <div class="about-grid">
+      <p class="about-text" id="aboutText">
+        这是一个记录学习、思考与实践的个人空间。
+        我对哲学、经济、社会、商业以及技术保持兴趣。
+        我希望通过持续阅读、观察、分析和实践，
+        建立自己理解世界的方式。
+        这里记录的不只是结论，也包括探索的过程。
+      </p>
+      <div class="about-quote" id="aboutQuote">
+        世界值得被理解，思想值得被检验。
+        保持开放，持续探索。
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="section" id="ideas"><div class="wrap">
-<div class="section-head reveal"><div><div class="section-no">02 / IDEAS</div><h2><span class="cn">思想与探索</span><span class="en">Ideas & exploration</span></h2></div><p class="section-intro"><span class="cn">跨越学科边界，建立自己的理解框架。以下是持续探索的主题，而不是专业身份声明。</span><span class="en">Connecting perspectives across disciplines. These are ongoing interests, not claims of expertise.</span></p></div>
-<div class="cards">
-<article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="philosophy" aria-label="打开哲学与人生"><div class="card-top"><span class="tag">PHILOSOPHY</span><span class="tiny">01 / IDEAS</span></div><h3><span class="cn">哲学与人生</span><span class="en">Philosophy & life</span></h3><p><span class="cn">关于存在、自由、价值、认知与人生意义的思考。</span><span class="en">Questions of existence, freedom, value, knowledge and meaning.</span></p><div class="card-foot">QUESTION THE OBVIOUS ↗</div></article>
-<article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="economics" aria-label="打开经济与商业"><div class="card-top"><span class="tag">ECONOMICS</span><span class="tiny">02 / IDEAS</span></div><h3><span class="cn">经济与商业</span><span class="en">Economics & business</span></h3><p><span class="cn">观察市场、企业、制度与资源如何影响现实世界。</span><span class="en">Exploring markets, companies, institutions and the allocation of resources.</span></p><div class="card-foot">UNDERSTAND THE SYSTEM ↗</div></article>
-<article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="society" aria-label="打开社会与世界"><div class="card-top"><span class="tag">SOCIETY</span><span class="tiny">03 / IDEAS</span></div><h3><span class="cn">社会与世界</span><span class="en">Society & the world</span></h3><p><span class="cn">从历史、科学与现实出发，理解社会运行的复杂性。</span><span class="en">Understanding society through history, science and observation.</span></p><div class="card-foot">SEE THE BIGGER PICTURE ↗</div></article>
-</div>
-</div></section>
+<!-- 思想 -->
+<section id="ideas">
+  <div class="container reveal">
+    <div class="section-tag">02 / IDEAS</div>
+    <h2 class="section-title" data-zh="思想与探索" data-en="Ideas & Exploration">
+      思想与探索
+    </h2>
+    <p class="section-desc" data-zh="从不同角度观察世界，尝试理解事物背后的逻辑。" data-en="Exploring the world from different perspectives.">
+      从不同角度观察世界，尝试理解事物背后的逻辑。
+    </p>
 
-<section class="section" id="works"><div class="wrap">
-<div class="section-head reveal"><div><div class="section-no">03 / PRACTICE</div><h2><span class="cn">作品与实践</span><span class="en">Works & practice</span></h2></div><p class="section-intro"><span class="cn">这里展示经过整理、可以公开分享的研究、项目与创作。新作品会逐步加入。</span><span class="en">A home for research, projects and creations that are ready to be shared.</span></p></div>
-<div class="work-grid">
-<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="research" aria-label="打开研究与分析"><span class="tiny">01 / RESEARCH</span><h3><span class="cn">研究与分析</span><span class="en">Research & analysis</span></h3><p><span class="cn">用于收录专题研究、行业观察、商业分析与学习成果。</span><span class="en">Topic research, industry observations and analytical work.</span></p><div class="status">作品持续整理中 · IN PROGRESS</div></article>
-<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="writing" aria-label="打开文章与随笔"><span class="tiny">02 / WRITING</span><h3><span class="cn">文章与随笔</span><span class="en">Essays & writing</span></h3><p><span class="cn">把零散的思考写清楚，让观点经得起时间与讨论。</span><span class="en">Giving shape to scattered thoughts and ideas through writing.</span></p><div class="status">等待添加公开文章 · COMING SOON</div></article>
-<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="digital" aria-label="打开数字项目"><span class="tiny">03 / DIGITAL</span><h3><span class="cn">数字项目</span><span class="en">Digital projects</span></h3><p><span class="cn">记录网站、工具、数据整理及其他数字化实践。</span><span class="en">Websites, tools, data projects and other digital experiments.</span></p><div class="status">持续构建 · BUILDING</div></article>
-<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="notes" aria-label="打开学习档案"><span class="tiny">04 / NOTES</span><h3><span class="cn">学习档案</span><span class="en">Learning archive</span></h3><p><span class="cn">整理阅读笔记、知识框架与值得反复思考的问题。</span><span class="en">Reading notes, knowledge maps and questions worth revisiting.</span></p><div class="status">持续积累 · COLLECTING</div></article>
-</div>
-</div></section>
+    <div class="card-grid">
+      <a class="card" href="#articles" data-category="ideas">
+        <div class="card-icon">✧</div>
+        <h3 data-zh="哲学与人生" data-en="Philosophy & Life">哲学与人生</h3>
+        <p data-zh="关于存在、意识、价值与人生意义的思考。" data-en="Thoughts on existence, consciousness and meaning.">关于存在、意识、价值与人生意义的思考。</p>
+        <span class="card-arrow">↗</span>
+      </a>
 
-<section class="contact"><div class="wrap reveal"><div class="kicker">04 / CONNECT</div><h2><span class="cn">思想值得交流，作品欢迎讨论。</span><span class="en">Ideas are meant to be shared. Work is open to discussion.</span></h2><p><span class="cn">如果你对这里的某个主题或作品感兴趣，欢迎交流。</span><span class="en">If something here resonates with you, feel free to reach out.</span></p><a class="btn" href="mailto:3131226292@qq.com">✉ 3131226292@qq.com</a></div></section>
+      <a class="card" href="#articles" data-category="economics">
+        <div class="card-icon">⌁</div>
+        <h3 data-zh="经济与商业" data-en="Economics & Business">经济与商业</h3>
+        <p data-zh="研究经济规律、商业模式、金融与投资。" data-en="Economics, business models, finance and investment.">研究经济规律、商业模式、金融与投资。</p>
+        <span class="card-arrow">↗</span>
+      </a>
+
+      <a class="card" href="#articles" data-category="society">
+        <div class="card-icon">◎</div>
+        <h3 data-zh="社会与世界" data-en="Society & World">社会与世界</h3>
+        <p data-zh="观察社会结构、历史变化与世界运行方式。" data-en="Observing society, history and the changing world.">观察社会结构、历史变化与世界运行方式。</p>
+        <span class="card-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 作品 -->
+<section id="works">
+  <div class="container reveal">
+    <div class="section-tag">03 / WORKS</div>
+    <h2 class="section-title" data-zh="作品与实践" data-en="Works & Practice">
+      作品与实践
+    </h2>
+    <p class="section-desc" data-zh="把思考转化为文字、研究与真实的实践。" data-en="Turning ideas into writing, research and practice.">
+      把思考转化为文字、研究与真实的实践。
+    </p>
+
+    <div class="card-grid">
+      <a class="card" href="#articles" data-category="research">
+        <div class="card-icon">⌘</div>
+        <h3 data-zh="研究与分析" data-en="Research & Analysis">研究与分析</h3>
+        <p data-zh="专题研究、数据分析与问题拆解。" data-en="Research, data analysis and problem solving.">专题研究、数据分析与问题拆解。</p>
+        <span class="card-arrow">↗</span>
+      </a>
+
+      <a class="card" href="#articles" data-category="articles">
+        <div class="card-icon">▤</div>
+        <h3 data-zh="文章与随笔" data-en="Articles & Essays">文章与随笔</h3>
+        <p data-zh="记录阅读、观察、思考与阶段性认知。" data-en="Notes, observations and reflections.">记录阅读、观察、思考与阶段性认知。</p>
+        <span class="card-arrow">↗</span>
+      </a>
+
+      <a class="card" href="#articles" data-category="digital">
+        <div class="card-icon">⌬</div>
+        <h3 data-zh="数字项目" data-en="Digital Projects">数字项目</h3>
+        <p data-zh="用技术和工具，把想法变成可以使用的作品。" data-en="Building practical projects with technology.">用技术和工具，把想法变成可以使用的作品。</p>
+        <span class="card-arrow">↗</span>
+      </a>
+
+      <a class="card" href="#articles" data-category="notes">
+        <div class="card-icon">✎</div>
+        <h3 data-zh="学习档案" data-en="Learning Archive">学习档案</h3>
+        <p data-zh="积累知识、记录进步，保存学习轨迹。" data-en="Knowledge, progress and learning records.">积累知识、记录进步，保存学习轨迹。</p>
+        <span class="card-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GitHub 动态文章 -->
+<section class="article-section" id="articles">
+  <div class="container reveal">
+    <div class="section-tag">04 / ARCHIVE</div>
+    <h2 class="section-title" data-zh="最新记录" data-en="Latest Records">最新记录</h2>
+    <p class="section-desc" data-zh="文章从个人 GitHub 仓库自动读取和更新。" data-en="Articles are automatically loaded from my GitHub repository.">
+      文章从个人 GitHub 仓库自动读取和更新。
+    </p>
+
+    <div class="article-toolbar" id="filters">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="ideas">哲学与人生</button>
+      <button class="filter-btn" data-filter="economics">经济与商业</button>
+      <button class="filter-btn" data-filter="society">社会与世界</button>
+      <button class="filter-btn" data-filter="research">研究与分析</button>
+      <button class="filter-btn" data-filter="articles">文章与随笔</button>
+      <button class="filter-btn" data-filter="digital">数字项目</button>
+      <button class="filter-btn" data-filter="notes">学习档案</button>
+    </div>
+
+    <div class="article-grid" id="articleGrid">
+      <div class="loading" id="loading">正在连接知识档案……</div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系 -->
+<section id="contact">
+  <div class="container reveal">
+    <div class="section-tag">05 / CONTACT</div>
+    <h2 class="section-title" data-zh="保持联系" data-en="Get in Touch">保持联系</h2>
+    <div class="contact-box">
+      <h3 data-zh="思想因交流而延伸" data-en="Ideas Grow Through Dialogue">思想因交流而延伸</h3>
+      <p data-zh="如果你对这里的内容感兴趣，欢迎交流。" data-en="Feel free to reach out if something here interests you.">
+        如果你对这里的内容感兴趣，欢迎交流。
+      </p>
+      <a class="email-link" href="mailto:3131226292@qq.com">3131226292@qq.com</a>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-<div class="modal">
-<button class="modal-close" id="modalClose" type="button" aria-label="关闭">×</button>
-<div class="modal-hint">DETAIL / 详情</div>
-<h3 id="modalTitle"></h3>
-<div id="modalMeta" class="article-meta"></div>
-<div id="modalText" class="article-body"></div>
-<div class="modal-hint">LI GUOQING · PERSONAL ARCHIVE</div>
-</div>
-</div>
-
-<!-- 悬浮联系按钮 -->
-<div class="floating-contact">
-<div class="contact-popup" id="contactPopup">
-<h3>联系我 · CONTACT</h3>
-<p>欢迎交流思想、分享观点与合作。</p>
-<a class="contact-email" href="mailto:3131226292@qq.com">✉ 3131226292@qq.com</a>
-</div>
-<button class="contact-toggle" id="contactToggle" type="button" aria-label="打开联系方式" aria-expanded="false">✉</button>
-</div>
-
-<footer class="wrap footer">
-<span>© <span id="year"></span> LI GUOQING</span>
-<span>LEARN · THINK · CREATE</span>
-<span><span class="cn">持续更新中</span><span class="en">ALWAYS IN PROGRESS</span></span>
+<footer>
+  © 2026 LI GUOQING · THINKING IS A WAY OF EXPLORING THE WORLD
 </footer>
 
+<!-- 悬浮联系 -->
+<div class="floating-contact">
+  <div class="contact-pop" id="contactPop">
+    <strong>联系我 · CONTACT</strong>
+    <p>欢迎交流想法与合作。</p>
+    <a href="mailto:3131226292@qq.com">3131226292@qq.com</a>
+  </div>
+  <button class="contact-toggle" id="contactToggle" aria-label="联系我">✉</button>
+</div>
+
+<!-- 文章详情 -->
+<div class="modal" id="articleModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose" aria-label="关闭">×</button>
+    <div class="article-category" id="modalCategory"></div>
+    <h2 id="modalTitle"></h2>
+    <div class="article-date" id="modalDate"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
 <script>
-/* 中英文切换 */
-const langBtn=document.getElementById('langBtn');
-langBtn.addEventListener('click',()=>{
-document.body.classList.toggle('english');
-document.documentElement.lang=document.body.classList.contains('english')?'en':'zh-CN';
-});
-document.getElementById('year').textContent=new Date().getFullYear();
+/* =====================================================
+   1. 星空背景：星点、连线、轻微动态
+===================================================== */
 
-/* 滚动进入动画 */
-if('IntersectionObserver' in window){
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
-}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-}else{
-document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+const space = document.getElementById("space");
+const sctx = space.getContext("2d");
+let sw, sh, stars = [];
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function resizeSpace() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  sw = window.innerWidth;
+  sh = window.innerHeight;
+  space.width = sw * dpr;
+  space.height = sh * dpr;
+  space.style.width = sw + "px";
+  space.style.height = sh + "px";
+  sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  stars = Array.from({length: Math.min(130, Math.floor(sw / 9))}, () => ({
+    x: Math.random() * sw,
+    y: Math.random() * sh,
+    r: Math.random() * 1.3 + .25,
+    speed: Math.random() * .22 + .04,
+    alpha: Math.random() * .65 + .15
+  }));
 }
 
-/* 星空粒子动画 */
-const canvas=document.getElementById('starfield');
-const ctx=canvas.getContext('2d');
-let stars=[];
-let mouse={x:-1000,y:-1000};
-let frame=0;
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function drawSpace() {
+  sctx.clearRect(0, 0, sw, sh);
 
-function resizeStars(){
-const ratio=Math.min(window.devicePixelRatio||1,2);
-canvas.width=window.innerWidth*ratio;
-canvas.height=window.innerHeight*ratio;
-ctx.setTransform(ratio,0,0,ratio,0,0);
-const count=Math.min(110,Math.floor(window.innerWidth*window.innerHeight/11000));
-stars=Array.from({length:count},()=>({
-x:Math.random()*window.innerWidth,
-y:Math.random()*window.innerHeight,
-r:Math.random()*1.7+.5,
-vx:(Math.random()-.5)*.25,
-vy:(Math.random()-.5)*.25
-}));
+  for (let i = 0; i < stars.length; i++) {
+    const p = stars[i];
+    if (!reduceMotion) {
+      p.y -= p.speed;
+      if (p.y < -5) {
+        p.y = sh + 5;
+        p.x = Math.random() * sw;
+      }
+    }
+
+    sctx.beginPath();
+    sctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    sctx.fillStyle = `rgba(164, 204, 255, ${p.alpha})`;
+    sctx.fill();
+
+    for (let j = i + 1; j < stars.length; j++) {
+      const q = stars[j];
+      const dx = p.x - q.x;
+      const dy = p.y - q.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 105) {
+        sctx.beginPath();
+        sctx.moveTo(p.x, p.y);
+        sctx.lineTo(q.x, q.y);
+        sctx.strokeStyle = `rgba(91, 150, 255, ${.075 * (1 - dist / 105)})`;
+        sctx.lineWidth = .5;
+        sctx.stroke();
+      }
+    }
+  }
+
+  if (!reduceMotion) requestAnimationFrame(drawSpace);
 }
-function drawStars(){
-ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
-stars.forEach(star=>{
-star.x+=star.vx;
-star.y+=star.vy;
-if(star.x<0||star.x>window.innerWidth)star.vx*=-1;
-if(star.y<0||star.y>window.innerHeight)star.vy*=-1;
-const dx=star.x-mouse.x;
-const dy=star.y-mouse.y;
-const distance=Math.sqrt(dx*dx+dy*dy);
-if(distance<120){
-ctx.beginPath();
-ctx.moveTo(star.x,star.y);
-ctx.lineTo(mouse.x,mouse.y);
-ctx.strokeStyle='rgba(76,112,83,.16)';
-ctx.stroke();
-}
-ctx.beginPath();
-ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
-ctx.fillStyle='rgba(65,99,73,.65)';
-ctx.fill();
+
+resizeSpace();
+drawSpace();
+window.addEventListener("resize", resizeSpace);
+
+/* =====================================================
+   2. 鼠标跟随光效
+===================================================== */
+
+const mouseLight = document.getElementById("mouse-light");
+let mouseX = -1000, mouseY = -1000;
+let lightX = -1000, lightY = -1000;
+
+window.addEventListener("pointermove", e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 });
-if(!reducedMotion)frame=requestAnimationFrame(drawStars);
+
+function moveLight() {
+  lightX += (mouseX - lightX) * .09;
+  lightY += (mouseY - lightY) * .09;
+  mouseLight.style.left = lightX + "px";
+  mouseLight.style.top = lightY + "px";
+  if (!reduceMotion) requestAnimationFrame(moveLight);
 }
-window.addEventListener('resize',resizeStars);
-window.addEventListener('mousemove',event=>{
-mouse.x=event.clientX;
-mouse.y=event.clientY;
+
+if (!reduceMotion && window.matchMedia("(pointer: fine)").matches) {
+  moveLight();
+}
+
+/* =====================================================
+   3. 3D 粒子星球
+===================================================== */
+
+const planet = document.getElementById("planet");
+const pctx = planet.getContext("2d");
+const planetWrap = document.querySelector(".planet-wrap");
+
+let pw, ph, pr;
+let rotation = 0;
+let targetRotationX = 0;
+let targetRotationY = 0;
+let currentRotationX = 0;
+let currentRotationY = 0;
+let planetParticles = [];
+
+function resizePlanet() {
+  const rect = planet.getBoundingClientRect();
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  pw = rect.width;
+  ph = rect.height;
+  pr = Math.min(pw, ph) * .34;
+
+  planet.width = pw * dpr;
+  planet.height = ph * dpr;
+  pctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const count = Math.min(1000, Math.max(420, Math.floor(pw * 1.35)));
+  planetParticles = [];
+
+  // 均匀分布在球面上的粒子
+  for (let i = 0; i < count; i++) {
+    const y = 1 - (i / (count - 1)) * 2;
+    const radius = Math.sqrt(1 - y * y);
+    const theta = Math.PI * (3 - Math.sqrt(5)) * i;
+
+    planetParticles.push({
+      x: Math.cos(theta) * radius,
+      y: y,
+      z: Math.sin(theta) * radius,
+      size: Math.random() * 1.35 + .45,
+      phase: Math.random() * Math.PI * 2
+    });
+  }
+}
+
+function drawPlanet() {
+  if (!pw || !ph) return;
+
+  pctx.clearRect(0, 0, pw, ph);
+
+  if (!reduceMotion) rotation += .0025;
+
+  currentRotationX += (targetRotationX - currentRotationX) * .045;
+  currentRotationY += (targetRotationY - currentRotationY) * .045;
+
+  const cx = pw / 2;
+  const cy = ph / 2;
+  const cosY = Math.cos(rotation + currentRotationY);
+  const sinY = Math.sin(rotation + currentRotationY);
+  const cosX = Math.cos(currentRotationX);
+  const sinX = Math.sin(currentRotationX);
+
+  const projected = [];
+
+  for (const p of planetParticles) {
+    let x = p.x * cosY - p.z * sinY;
+    let z = p.x * sinY + p.z * cosY;
+    let y = p.y;
+
+    const yy = y * cosX - z * sinX;
+    const zz = y * sinX + z * cosX;
+
+    const perspective = 1 + zz * .16;
+    projected.push({
+      x: cx + x * pr * perspective,
+      y: cy + yy * pr * perspective,
+      z: zz,
+      size: p.size,
+      phase: p.phase
+    });
+  }
+
+  // 绘制球体柔和光晕
+  const glow = pctx.createRadialGradient(
+    cx - pr * .25, cy - pr * .3, 1,
+    cx, cy, pr * 1.4
+  );
+  glow.addColorStop(0, "rgba(60, 160, 255, .14)");
+  glow.addColorStop(.65, "rgba(73, 90, 210, .06)");
+  glow.addColorStop(1, "rgba(10, 20, 50, 0)");
+  pctx.fillStyle = glow;
+  pctx.beginPath();
+  pctx.arc(cx, cy, pr * 1.4, 0, Math.PI * 2);
+  pctx.fill();
+
+  // 后方粒子先画，前方粒子后画
+  projected.sort((a, b) => a.z - b.z);
+
+  for (const p of projected) {
+    const depth = (p.z + 1) / 2;
+    const alpha = .17 + depth * .75;
+    const size = p.size * (.65 + depth * .55);
+
+    pctx.beginPath();
+    pctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+    pctx.fillStyle = depth > .7
+      ? `rgba(132, 218, 255, ${alpha})`
+      : `rgba(94, 133, 255, ${alpha * .8})`;
+    pctx.fill();
+  }
+
+  // 球体外部光环
+  pctx.beginPath();
+  pctx.arc(cx, cy, pr * 1.04, 0, Math.PI * 2);
+  pctx.strokeStyle = "rgba(105, 191, 255, .12)";
+  pctx.lineWidth = 1;
+  pctx.stroke();
+
+  if (!reduceMotion) requestAnimationFrame(drawPlanet);
+}
+
+planetWrap.addEventListener("pointermove", e => {
+  const rect = planetWrap.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width - .5;
+  const y = (e.clientY - rect.top) / rect.height - .5;
+  targetRotationY = x * .85;
+  targetRotationX = -y * .65;
 });
-resizeStars();
-drawStars();
+
+planetWrap.addEventListener("pointerleave", () => {
+  targetRotationX = 0;
+  targetRotationY = 0;
+});
+
+resizePlanet();
+drawPlanet();
+window.addEventListener("resize", resizePlanet);
+
+/* =====================================================
+   4. 标题文字解码
+===================================================== */
+
+const heroTitle = document.getElementById("heroTitle");
+const originalTitle = heroTitle.textContent.trim();
+const decodeChars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ<>/{}[]";
+
+function decodeTitle() {
+  let frame = 0;
+  const totalFrames = 24;
+
+  function render() {
+    const progress = frame / totalFrames;
+    const fixedCount = Math.floor(progress * originalTitle.length);
+
+    let output = "";
+    for (let i = 0; i < originalTitle.length; i++) {
+      if (i < fixedCount || originalTitle[i] === " ") {
+        output += originalTitle[i];
+      } else {
+        output += decodeChars[Math.floor(Math.random() * decodeChars.length)];
+      }
+    }
+
+    heroTitle.textContent = output;
+    heroTitle.setAttribute("data-text", output);
+    frame++;
+
+    if (frame <= totalFrames) {
+      setTimeout(render, 55);
+    } else {
+      heroTitle.textContent = originalTitle;
+      heroTitle.setAttribute("data-text", originalTitle);
+    }
+  }
+
+  render();
+}
+
+if (!reduceMotion) {
+  setTimeout(decodeTitle, 450);
+}
+
+/* =====================================================
+   5. 卡片跟随鼠标倾斜
+===================================================== */
+
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("pointermove", e => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rx = (y / rect.height - .5) * -5;
+    const ry = (x / rect.width - .5) * 5;
+
+    card.style.transform =
+      `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`;
+    card.style.setProperty("--mx", x + "px");
+    card.style.setProperty("--my", y + "px");
+  });
+
+  card.addEventListener("pointerleave", () => {
+    card.style.transform = "";
+  });
+});
+
+/* =====================================================
+   6. 滚动出现动画
+===================================================== */
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: .12});
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* =====================================================
+   7. 中英文切换
+===================================================== */
+
+let currentLang = "zh";
+const langBtn = document.getElementById("langBtn");
+
+const translations = {
+  zh: {
+    subtitle: "一个不断学习、思考世界的人。",
+    description: "在知识、思想与实践之间探索世界。保持好奇，独立思考，并尝试理解事物背后的规律。",
+    explore: "探索我的思想 ↗",
+    works: "查看我的作品",
+    about: "这是一个记录学习、思考与实践的个人空间。我对哲学、经济、社会、商业以及技术保持兴趣。我希望通过持续阅读、观察、分析和实践，建立自己理解世界的方式。这里记录的不只是结论，也包括探索的过程。",
+    quote: "世界值得被理解，思想值得被检验。保持开放，持续探索。",
+    filters: ["全部","哲学与人生","经济与商业","社会与世界","研究与分析","文章与随笔","数字项目","学习档案"]
+  },
+  en: {
+    subtitle: "A lifelong learner and explorer of ideas.",
+    description: "Exploring the world through knowledge, thought and practice. Staying curious, thinking independently and seeking the patterns behind things.",
+    explore: "Explore My Ideas ↗",
+    works: "View My Works",
+    about: "This is a personal space for learning, thinking and practice. I am interested in philosophy, economics, society, business and technology. Through reading, observation, analysis and practice, I hope to develop my own way of understanding the world. This space records not only conclusions, but also the process of exploration.",
+    quote: "The world deserves to be understood. Ideas deserve to be tested. Stay open and keep exploring.",
+    filters: ["All","Philosophy & Life","Economics & Business","Society & World","Research & Analysis","Articles & Essays","Digital Projects","Learning Archive"]
+  }
+};
+
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+
+  document.querySelectorAll("[data-zh]").forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+
+  document.getElementById("heroSubtitle").textContent = translations[lang].subtitle;
+  document.getElementById("heroDescription").textContent = translations[lang].description;
+  document.getElementById("exploreBtn").textContent = translations[lang].explore;
+  document.getElementById("worksBtn").textContent = translations[lang].works;
+  document.getElementById("aboutText").textContent = translations[lang].about;
+  document.getElementById("aboutQuote").textContent = translations[lang].quote;
+
+  document.querySelectorAll(".filter-btn").forEach((btn, i) => {
+    btn.textContent = translations[lang].filters[i] || btn.textContent;
+  });
+
+  langBtn.textContent = lang === "zh" ? "EN / 中" : "中 / EN";
+  renderArticles();
+}
+
+langBtn.addEventListener("click", () => {
+  setLanguage(currentLang === "zh" ? "en" : "zh");
+});
+
+/* =====================================================
+   8. GitHub Markdown 文章读取
+===================================================== */
+
+const GITHUB_USER = "shiyi4576-commits";
+const GITHUB_REPO = "li-guoqing-personal";
+
+const folders = [
+  "ideas",
+  "economics",
+  "society",
+  "research",
+  "articles",
+  "digital",
+  "notes"
+];
+
+const categoryNames = {
+  ideas: {zh:"哲学与人生", en:"Philosophy & Life"},
+  economics: {zh:"经济与商业", en:"Economics & Business"},
+  society: {zh:"社会与世界", en:"Society & World"},
+  research: {zh:"研究与分析", en:"Research & Analysis"},
+  articles: {zh:"文章与随笔", en:"Articles & Essays"},
+  digital: {zh:"数字项目", en:"Digital Projects"},
+  notes: {zh:"学习档案", en:"Learning Archive"}
+};
+
+let allArticles = [];
+let activeFilter = "all";
+
+function parseFrontMatter(text) {
+  const result = {body: text, title: "", date: "", description: ""};
+
+  const match = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
+  if (!match) return result;
+
+  const front = match[1];
+  result.body = text.slice(match[0].length);
+
+  front.split("\n").forEach(line => {
+    const index = line.indexOf(":");
+    if (index < 0) return;
+
+    const key = line.slice(0, index).trim().toLowerCase();
+    let value = line.slice(index + 1).trim();
+    value = value.replace(/^["']|["']$/g, "");
+
+    if (key === "title") result.title = value;
+    if (key === "date" || key === "created") result.date = value;
+    if (key === "description" || key === "summary") result.description = value;
+  });
+
+  return result;
+}
+
+function plainText(markdown) {
+  return markdown
+    .replace(/!\[.*?\]\(.*?\)/g, "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/#{1,6}\s/g, "")
+    .replace(/[*_`>#~-]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+async function fetchFolder(folder) {
+  const api = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/content/${folder}`;
+
+  try {
+    const response = await fetch(api);
+    if (!response.ok) return [];
+
+    const files = await response.json();
+    if (!Array.isArray(files)) return [];
+
+    const markdownFiles = files.filter(file =>
+      file.type === "file" && /\.(md|markdown)$/i.test(file.name)
+    );
+
+    const results = await Promise.all(markdownFiles.map(async file => {
+      try {
+        const res = await fetch(file.download_url);
+        if (!res.ok) return null;
+
+        const raw = await res.text();
+        const parsed = parseFrontMatter(raw);
+        const title = parsed.title ||
+          file.name.replace(/\.(md|markdown)$/i, "").replace(/[-_]/g, " ");
+
+        return {
+          title,
+          date: parsed.date,
+          description: parsed.description || plainText(parsed.body).slice(0, 125),
+          body: parsed.body,
+          category: folder,
+          url: file.html_url,
+          name: file.name
+        };
+      } catch {
+        return null;
+      }
+    }));
+
+    return results.filter(Boolean);
+  } catch (error) {
+    console.warn("读取分类失败：", folder, error);
+    return [];
+  }
+}
+
+async function loadArticles() {
+  const grid = document.getElementById("articleGrid");
+  grid.innerHTML = `<div class="loading">${currentLang === "zh" ? "正在连接知识档案……" : "Loading archive..."}</div>`;
+
+  const results = await Promise.all(folders.map(fetchFolder));
+  allArticles = results.flat();
+
+  allArticles.sort((a, b) => {
+    return new Date(b.date || 0) - new Date(a.date || 0);
+  });
+
+  renderArticles();
+}
+
+function renderArticles() {
+  const grid = document.getElementById("articleGrid");
+  const filtered = activeFilter === "all"
+    ? allArticles
+    : allArticles.filter(a => a.category === activeFilter);
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="loading">${
+      currentLang === "zh"
+        ? "这里暂时还没有文章，添加 Markdown 文件后会自动显示。"
+        : "No articles yet. Add Markdown files to your repository."
+    }</div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((article, index) => {
+    const category = categoryNames[article.category] || {};
+    const categoryName = category[currentLang] || article.category;
+    const description = escapeHTML(article.description || "");
+
+    return `
+      <article class="article-card" data-index="${index}" data-name="${escapeHTML(article.name)}">
+        <div class="article-category">${escapeHTML(categoryName)}</div>
+        <h3>${escapeHTML(article.title)}</h3>
+        <p>${description}</p>
+        <div class="article-date">${escapeHTML(article.date || "")}</div>
+      </article>
+    `;
+  }).join("");
+
+  grid.querySelectorAll(".article-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const article = filtered.find(a => a.name === card.dataset.name);
+      if (article) openArticle(article);
+    });
+  });
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+/* 简单 Markdown 显示 */
+function markdownToHTML(md) {
+  let html = escapeHTML(md);
+
+  html = html.replace(/^### (.*)$/gm, "<h3>$1</h3>");
+  html = html.replace(/^## (.*)$/gm, "<h2>$1</h2>");
+  html = html.replace(/^# (.*)$/gm, "<h1>$1</h1>");
+  html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
+  html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  html = html.replace(/(^|\n)- (.*)/g, "$1• $2");
+  html = html.replace(/\n/g, "<br>");
+
+  return html;
+}
+
+function openArticle(article) {
+  const category = categoryNames[article.category] || {};
+
+  document.getElementById("modalCategory").textContent =
+    category[currentLang] || article.category;
+  document.getElementById("modalTitle").textContent = article.title;
+  document.getElementById("modalDate").textContent = article.date || "";
+  document.getElementById("modalBody").innerHTML =
+    markdownToHTML(article.body || "");
+
+  document.getElementById("articleModal").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeArticle() {
+  document.getElementById("articleModal").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modalClose").addEventListener("click", closeArticle);
+document.getElementById("articleModal").addEventListener("click", e => {
+  if (e.target.id === "articleModal") closeArticle();
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeArticle();
+});
+
+/* 分类筛选 */
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    renderArticles();
+  });
+});
+
+/* 思想与作品卡片跳转到对应分类 */
+document.querySelectorAll(".card[data-category]").forEach(card => {
+  card.addEventListener("click", () => {
+    activeFilter = card.dataset.category;
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.filter === activeFilter);
+    });
+  });
+});
+
+/* 启动 */
+loadArticles();
 
 /* 联系按钮 */
-const contactToggle=document.getElementById('contactToggle');
-const contactPopup=document.getElementById('contactPopup');
-contactToggle.addEventListener('click',()=>{
-const opened=contactPopup.classList.toggle('open');
-contactToggle.setAttribute('aria-expanded',opened);
-contactToggle.textContent=opened?'×':'✉';
-});
-document.addEventListener('click',event=>{
-if(!event.target.closest('.floating-contact')){
-contactPopup.classList.remove('open');
-contactToggle.setAttribute('aria-expanded','false');
-contactToggle.textContent='✉';
-}
-});
-
-/* 文章与分类读取 */
-const modal=document.getElementById('detailModal');
-const modalTitle=document.getElementById('modalTitle');
-const modalText=document.getElementById('modalText');
-const modalMeta=document.getElementById('modalMeta');
-
-function openModal(title,content,meta='',isHtml=false){
-modalTitle.textContent=title;
-modalMeta.textContent=meta;
-if(isHtml)modalText.innerHTML=content;
-else modalText.textContent=content;
-modal.classList.add('open');
-document.body.style.overflow='hidden';
-document.getElementById('modalClose').focus();
-}
-function closeModal(){
-modal.classList.remove('open');
-document.body.style.overflow='';
-}
-document.getElementById('modalClose').addEventListener('click',closeModal);
-modal.addEventListener('click',event=>{if(event.target===modal)closeModal();});
-document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal();});
-
-const REPO='shiyi4576-commits/li-guoqing-personal';
-const CATEGORY_CONFIG={
-philosophy:{title:'哲学与人生',folder:'ideas',kind:'idea'},
-economics:{title:'经济与商业',folder:'economics',kind:'idea'},
-society:{title:'社会与世界',folder:'society',kind:'idea'},
-research:{title:'研究与分析',folder:'research',kind:'work'},
-writing:{title:'文章与随笔',folder:'articles',kind:'work'},
-digital:{title:'数字项目',folder:'digital',kind:'work'},
-notes:{title:'学习档案',folder:'notes',kind:'work'}
-};
-const loadedCache={};
-
-function escapeHTML(value){
-return String(value??'').replace(/[&<>"']/g,char=>({
-'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-}[char]));
-}
-function parseMarkdownFile(source){
-let body=String(source??'').replace(/^\uFEFF/,'');
-const match=body.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*(?:\r?\n|$)/);
-const meta={};
-if(match){
-match[1].split(/\r?\n/).forEach(line=>{
-const m=line.match(/^([A-Za-z0-9_-]+)\s*:\s*(.*)$/);
-if(m)meta[m[1]]=m[2].trim().replace(/^["']|["']$/g,'');
-});
-body=body.slice(match[0].length);
-}
-return{
-title:meta.title||'未命名内容',
-date:meta.date||'',
-summary:meta.summary||meta.description||'',
-file:meta.file||meta.attachment||'',
-url:meta.url||meta.link||'',
-body:body.trim()
-};
-}
-function safeUrl(value){
-const raw=String(value||'').trim();
-if(!raw)return '';
-if(/^https?:\/\//i.test(raw))return raw;
-if(raw.startsWith('/'))return new URL(raw,window.location.origin).href;
-return new URL(raw,window.location.href).href;
-}
-function inlineMarkdown(text){
-let out=escapeHTML(text);
-out=out.replace(/`([^`]+)`/g,'<code>$1</code>');
-out=out.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
-out=out.replace(/\*([^*]+)\*/g,'<em>$1</em>');
-out=out.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-return out;
-}
-function markdownToHTML(markdown){
-const lines=String(markdown||'').replace(/\r/g,'').split('\n');
-const out=[];
-let paragraph=[],listType='';
-const flushParagraph=()=>{
-if(paragraph.length){out.push('<p>'+paragraph.map(inlineMarkdown).join('<br>')+'</p>');paragraph=[];}
-};
-const closeList=()=>{if(listType){out.push(listType==='ul'?'</ul>':'</ol>');listType='';}};
-for(const rawLine of lines){
-const line=rawLine.trim();
-if(!line){flushParagraph();closeList();continue;}
-const heading=line.match(/^(#{1,3})\s+(.+)$/);
-if(heading){flushParagraph();closeList();const level=heading[1].length;out.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);continue;}
-const bullet=line.match(/^[-*]\s+(.+)$/);
-const numbered=line.match(/^\d+\.\s+(.+)$/);
-if(bullet||numbered){
-flushParagraph();
-const wanted=bullet?'ul':'ol';
-if(listType!==wanted){closeList();out.push(wanted==='ul'?'<ul>':'<ol>');listType=wanted;}
-out.push('<li>'+inlineMarkdown((bullet||numbered)[1])+'</li>');
-continue;
-}
-if(line.startsWith('>')){
-flushParagraph();closeList();
-out.push('<blockquote>'+inlineMarkdown(line.replace(/^>\s?/,''))+'</blockquote>');
-continue;
-}
-paragraph.push(line);
-}
-flushParagraph();closeList();
-return out.join('');
-}
-function buildResourceActions(item){
-const links=[];
-const fileUrl=safeUrl(item.file);
-const externalUrl=safeUrl(item.url);
-if(fileUrl)links.push(`<a class="resource-link" href="${escapeHTML(fileUrl)}" target="_blank" rel="noopener noreferrer">打开 / 下载附件 ↗</a>`);
-if(externalUrl)links.push(`<a class="resource-link" href="${escapeHTML(externalUrl)}" target="_blank" rel="noopener noreferrer">访问项目 ↗</a>`);
-return links.length?'<div class="resource-actions">'+links.join('')+'</div>':'';
-}
-async function fetchCategory(categoryKey){
-if(loadedCache[categoryKey])return loadedCache[categoryKey];
-const config=CATEGORY_CONFIG[categoryKey];
-const api=`https://api.github.com/repos/${REPO}/contents/content/${config.folder}`;
-const response=await fetch(api,{headers:{'Accept':'application/vnd.github+json'}});
-if(response.status===404){loadedCache[categoryKey]=[];return [];}
-if(!response.ok)throw new Error('GitHub API '+response.status);
-const files=await response.json();
-const markdownFiles=files.filter(file=>file.type==='file'&&file.name.toLowerCase().endsWith('.md'));
-const items=await Promise.all(markdownFiles.map(async file=>{
-const result=await fetch(file.download_url);
-if(!result.ok)throw new Error('无法读取文件 '+file.name);
-return{...parseMarkdownFile(await result.text()),fileName:file.name};
-}));
-items.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-loadedCache[categoryKey]=items;
-return items;
-}
-function showItem(categoryKey,item){
-const config=CATEGORY_CONFIG[categoryKey];
-const actions=config.kind==='work'?buildResourceActions(item):'';
-const body=markdownToHTML(item.body);
-openModal(item.title,actions+body,item.date?'PUBLISHED / '+item.date:config.title,true);
-}
-async function openCategory(categoryKey){
-const config=CATEGORY_CONFIG[categoryKey];
-openModal(config.title,'正在读取内容……','LOADING');
-try{
-const items=await fetchCategory(categoryKey);
-if(!items.length){
-modalMeta.textContent='CONTENT / 内容归档';
-modalText.innerHTML='<div class="empty-state">这个分类暂时还没有发布内容。你可以在 Pages CMS 对应栏目中新增内容，保存后刷新网站即可看到。</div>';
-return;
-}
-modalMeta.textContent=`${items.length} ITEMS / ${config.kind==='idea'?'思想文章':'作品档案'}`;
-modalText.innerHTML=items.map((item,index)=>`
-<article class="article-row category-entry" tabindex="0" role="button" data-index="${index}">
-<time>${escapeHTML(item.date||'ARCHIVE')}</time>
-<div><h4>${escapeHTML(item.title)}</h4><p>${escapeHTML(item.summary||'点击查看详情')}</p></div>
-<span class="article-arrow">↗</span>
-</article>`).join('');
-modalText.querySelectorAll('.category-entry').forEach(row=>{
-const open=()=>showItem(categoryKey,items[Number(row.dataset.index)]);
-row.addEventListener('click',open);
-row.addEventListener('keydown',event=>{
-if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
-});
-});
-}catch(error){
-console.error(error);
-modalMeta.textContent='LOAD ERROR / 读取失败';
-modalText.innerHTML='<div class="empty-state">暂时无法读取这个分类。请确认 GitHub 仓库为公开状态、文件夹名称正确，并稍后刷新重试。</div>';
-}
-}
-document.querySelectorAll('.category-card').forEach(card=>{
-const open=()=>openCategory(card.dataset.category);
-card.addEventListener('click',open);
-card.addEventListener('keydown',event=>{
-if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
-});
+document.getElementById("contactToggle").addEventListener("click", () => {
+  document.getElementById("contactPop").classList.toggle("show");
 });
 </script>
+
 </body>
 </html>
