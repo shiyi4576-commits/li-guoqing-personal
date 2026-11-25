@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,149 +10,420 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#f4f2eb;--ink:#202a25;--muted:#68736b;--green:#254b3b;--line:#d9ddd4;--lime:#d8e3b8;--white:#fffefa;--serif:"Noto Serif SC",Georgia,serif;--sans:"DM Sans","Microsoft YaHei",sans-serif;--mono:"DM Mono",monospace}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.04em}.brand-mark{width:34px;height:34px;border-radius:50%;background:var(--green);color:#f4f2eb;display:grid;place-items:center;font-family:var(--serif);font-size:16px}.nav{display:flex;align-items:center;gap:28px;font-size:13px;color:#526057}.nav a:hover{color:var(--green)}.lang{border:1px solid var(--line);background:transparent;border-radius:30px;padding:8px 13px;font-size:12px;cursor:pointer}.hero{min-height:620px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;padding:80px 0 90px;position:relative}.eyebrow,.kicker{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}h1{font-family:var(--serif);font-size:clamp(54px,8vw,100px);line-height:1.12;letter-spacing:-.06em;font-weight:500;margin:28px 0 22px}.hero-sub{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);color:var(--green);line-height:1.7;margin:0 0 18px}.hero-copy{max-width:480px;color:var(--muted);font-size:15px}.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:3px;font-size:13px;border:1px solid var(--green);transition:.25s}.btn.primary{background:var(--green);color:var(--white)}.btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px #243d2b18}.btn.secondary{color:var(--green)}.visual{height:410px;position:relative;display:grid;place-items:center;overflow:hidden}.orb{width:min(340px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 34% 28%,#eff0d7 0 7%,#b8c8a6 24%,#668875 51%,#254b3b 74%,#172e25 100%);box-shadow:inset -24px -28px 55px #14281d70,0 35px 70px #254b3b24;animation:float 8s ease-in-out infinite;position:relative}.orb:before,.orb:after{content:"";position:absolute;border:1px solid #55705e55;border-radius:50%;inset:-22px;transform:rotate(-24deg) scaleY(.35)}.orb:after{inset:-55px;transform:rotate(28deg) scaleY(.28);border-color:#8c9c7d80}.visual-note{position:absolute;right:2%;bottom:7%;font:10px var(--mono);letter-spacing:.12em;color:var(--muted)}@keyframes float{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-17px) rotate(4deg)}}.scrollhint{position:absolute;bottom:28px;left:0;font:10px var(--mono);letter-spacing:.15em;color:var(--muted)}.section{padding:100px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}.section-no{font:11px var(--mono);color:var(--muted);letter-spacing:.12em}.section h2{font:500 clamp(32px,4vw,48px)/1.25 var(--serif);margin:12px 0 0;letter-spacing:-.04em}.section-intro{max-width:390px;color:var(--muted);font-size:14px;margin:0}.about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.quote{font:500 25px/1.8 var(--serif);color:var(--green);margin:0}.about-text{max-width:650px;color:#59645d;font-size:15px}.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}.principle{padding:22px 20px;border:1px solid var(--line);min-height:145px;background:#ffffff38}.principle b{display:block;font:18px var(--serif);margin:15px 0 5px}.principle p{font-size:12px;color:var(--muted);margin:0}.tiny{font:10px var(--mono);color:#879187;letter-spacing:.1em}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--white);border:1px solid var(--line);padding:25px;min-height:240px;display:flex;flex-direction:column;transition:.25s}.card:hover{transform:translateY(-5px);box-shadow:0 16px 35px #203a2a10}.card-top{display:flex;justify-content:space-between;align-items:center}.tag{font:10px var(--mono);letter-spacing:.08em;color:var(--green);background:#e8eddf;padding:6px 9px;border-radius:2px}.card h3{font:500 21px var(--serif);margin:26px 0 9px}.card p{font-size:13px;color:var(--muted);margin:0}.card-foot{margin-top:auto;padding-top:24px;font:10px var(--mono);color:#89938a;letter-spacing:.1em}.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.work{padding:28px;background:#e9e9df;min-height:220px;display:flex;flex-direction:column}.work:nth-child(2){background:#e1e8dc}.work:nth-child(3){background:#e9e4d8}.work:nth-child(4){background:#e4e8e4}.work h3{font:500 23px var(--serif);margin:22px 0 8px}.work p{font-size:13px;color:#68736b;max-width:400px;margin:0}.work .status{margin-top:auto;padding-top:26px;font:10px var(--mono);letter-spacing:.1em;color:#6c796e}.journal{border-top:1px solid var(--line)}.entry{display:grid;grid-template-columns:150px 1fr 24px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}.entry time{font:11px var(--mono);color:#879187}.entry h3{font:500 19px var(--serif);margin:0 0 5px}.entry p{font-size:12px;color:var(--muted);margin:0}.entry .arrow{color:var(--green);font-size:20px}.contact{background:var(--green);color:#f4f2eb;padding:75px 0;margin-top:20px}.contact .kicker{color:#b9c9b8}.contact h2{font:500 clamp(35px,5vw,58px)/1.35 var(--serif);margin:20px 0;max-width:700px}.contact p{color:#c6d0c6;font-size:14px}.contact .btn{border-color:#dce5d7;color:#f4f2eb;margin-top:15px}.footer{padding:26px 0;display:flex;justify-content:space-between;gap:15px;font:10px var(--mono);color:var(--muted);letter-spacing:.08em}.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}.cn{display:block}.en{display:none}.english .cn{display:none}.english .en{display:block}.english .nav .cn,.english .nav .en{display:inline}.english .hero-sub{font-family:var(--sans)}.english h1,.english .section h2,.english .quote,.english .card h3,.english .work h3,.english .entry h3,.english .contact h2{font-family:var(--serif)}
-.interactive-card{cursor:pointer;position:relative}.interactive-card:focus-visible{outline:2px solid var(--green);outline-offset:4px}.card.interactive-card:hover,.work.interactive-card:hover{filter:brightness(.985)}.interactive-card:after{content:"点击查看 ↗";position:absolute;right:20px;bottom:18px;font:10px var(--mono);letter-spacing:.06em;color:var(--green);opacity:.7}.entry.interactive-card:after{content:"查看 ↗";right:34px;bottom:25px}.modal-backdrop{position:fixed;inset:0;background:#101a15a6;display:none;align-items:center;justify-content:center;padding:22px;z-index:20}.modal-backdrop.open{display:flex}.modal{width:min(720px,100%);max-height:min(86vh,900px);overflow:auto;background:var(--paper);padding:34px;position:relative;box-shadow:0 24px 80px #0003}.modal h3{font:500 29px var(--serif);margin:10px 0 15px}.modal p{color:var(--muted);font-size:14px;line-height:1.9;white-space:pre-wrap}.modal-close{position:sticky;float:right;top:0;border:1px solid var(--line);background:var(--paper);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px;z-index:2}.modal-hint{font:10px var(--mono);letter-spacing:.12em;color:var(--muted)}.article-list{margin-top:48px}.article-list-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px}.article-list-head h3{font:500 24px var(--serif);margin:0}.article-list-head p{font-size:12px;color:var(--muted);margin:0}.article-row{display:grid;grid-template-columns:120px 1fr 24px;gap:24px;align-items:center;padding:22px 0;border-top:1px solid var(--line);cursor:pointer;transition:.2s}.article-row:last-child{border-bottom:1px solid var(--line)}.article-row:hover{padding-left:8px;color:var(--green)}.article-row time{font:11px var(--mono);color:#879187}.article-row h4{font:500 18px var(--serif);margin:0 0 5px}.article-row p{font-size:12px;color:var(--muted);margin:0}.article-arrow{font-size:20px;color:var(--green)}.load-message{padding:20px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}.article-body{color:#48554c;font-size:15px;line-height:2}.article-body h1,.article-body h2,.article-body h3{font-family:var(--serif);color:var(--ink);line-height:1.5;margin:1.5em 0 .6em}.article-body h1{font-size:27px}.article-body h2{font-size:23px}.article-body h3{font-size:19px}.article-body p{color:#48554c;font-size:15px;line-height:2;white-space:normal;margin:0 0 1em}.article-body ul,.article-body ol{padding-left:1.5em}.article-body li{margin:.35em 0}.article-body blockquote{border-left:3px solid #9aaa8c;margin:1em 0;padding:.2em 1em;color:var(--muted)}.article-body code{font-family:var(--mono);font-size:.9em;background:#e8e8df;padding:2px 5px}.article-meta{font:11px var(--mono);color:#879187;letter-spacing:.08em;margin-bottom:22px}
-@media(max-width:800px){.nav{gap:13px}.nav a{display:none}.hero{grid-template-columns:1fr;gap:10px;padding:65px 0 80px}.visual{height:300px;grid-row:1}.hero-copy-wrap{grid-row:2}.orb{width:245px}.scrollhint{display:none}.about-grid{grid-template-columns:1fr;gap:28px}.cards{grid-template-columns:1fr 1fr}.principles{grid-template-columns:1fr}.section{padding:72px 0}.section-head{display:block}.section-intro{margin-top:20px}.work-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.wrap{width:min(100% - 34px,1160px)}.topbar{height:66px}.cards,.work-grid{grid-template-columns:1fr}.card{min-height:205px}.entry{grid-template-columns:1fr 20px;gap:5px}.entry time{grid-column:1/-1;margin-bottom:6px}.entry h3{font-size:17px}.footer{flex-direction:column}.visual{height:260px}.hero{min-height:auto}.section-head{margin-bottom:32px}.article-row{grid-template-columns:1fr 20px;gap:5px}.article-row time{grid-column:1/-1}.article-row h4{font-size:16px}.modal{padding:24px 20px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 
-.category-card{cursor:pointer}
-.category-card:after{content:"点击进入 ↗";position:absolute;right:20px;bottom:18px;font:10px var(--mono);letter-spacing:.06em;color:var(--green);opacity:.72}
+<style>
+:root{
+--paper:#f4f2eb;--ink:#202a25;--muted:#68736b;
+--green:#254b3b;--line:#d9ddd4;--lime:#d8e3b8;
+--white:#fffefa;--serif:"Noto Serif SC",Georgia,serif;
+--sans:"DM Sans","Microsoft YaHei",sans-serif;
+--mono:"DM Mono",monospace
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+
+/* 星空背景 */
+#starfield{
+position:fixed;inset:0;width:100%;height:100%;
+z-index:0;pointer-events:none;opacity:.42
+}
+body>*:not(#starfield){position:relative;z-index:1}
+
+/* 导航 */
+.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.04em}
+.brand-mark{width:34px;height:34px;border-radius:50%;background:var(--green);color:#f4f2eb;display:grid;place-items:center;font-family:var(--serif);font-size:16px}
+.nav{display:flex;align-items:center;gap:28px;font-size:13px;color:#526057}
+.nav a:hover{color:var(--green)}
+.lang{border:1px solid var(--line);background:transparent;border-radius:30px;padding:8px 13px;font-size:12px;cursor:pointer}
+
+/* 首屏 */
+.hero{min-height:620px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;padding:80px 0 90px;position:relative}
+.eyebrow,.kicker{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--serif);font-size:clamp(54px,8vw,100px);line-height:1.12;letter-spacing:-.06em;font-weight:500;margin:28px 0 22px}
+.hero-sub{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);color:var(--green);line-height:1.7;margin:0 0 18px}
+.hero-copy{max-width:480px;color:var(--muted);font-size:15px}
+.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:3px;font-size:13px;border:1px solid var(--green);transition:.25s}
+.btn.primary{background:var(--green);color:var(--white)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px #243d2b18}
+.btn.secondary{color:var(--green)}
+.visual{height:410px;position:relative;display:grid;place-items:center;overflow:hidden}
+.orb{width:min(340px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 34% 28%,#eff0d7 0 7%,#b8c8a6 24%,#668875 51%,#254b3b 74%,#172e25 100%);box-shadow:inset -24px -28px 55px #14281d70,0 35px 70px #254b3b24;animation:float 8s ease-in-out infinite;position:relative}
+.orb:before,.orb:after{content:"";position:absolute;border:1px solid #55705e55;border-radius:50%;inset:-22px;transform:rotate(-24deg) scaleY(.35)}
+.orb:after{inset:-55px;transform:rotate(28deg) scaleY(.28);border-color:#8c9c7d80}
+.visual-note{position:absolute;right:2%;bottom:7%;font:10px var(--mono);letter-spacing:.12em;color:var(--muted)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-17px) rotate(4deg)}}
+.scrollhint{position:absolute;bottom:28px;left:0;font:10px var(--mono);letter-spacing:.15em;color:var(--muted)}
+
+/* 通用板块 */
+.section{padding:100px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
+.section-no{font:11px var(--mono);color:var(--muted);letter-spacing:.12em}
+.section h2{font:500 clamp(32px,4vw,48px)/1.25 var(--serif);margin:12px 0 0;letter-spacing:-.04em}
+.section-intro{max-width:390px;color:var(--muted);font-size:14px;margin:0}
+.about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}
+.quote{font:500 25px/1.8 var(--serif);color:var(--green);margin:0}
+.about-text{max-width:650px;color:#59645d;font-size:15px}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}
+.principle{padding:22px 20px;border:1px solid var(--line);min-height:145px;background:#ffffff38}
+.principle b{display:block;font:18px var(--serif);margin:15px 0 5px}
+.principle p{font-size:12px;color:var(--muted);margin:0}
+.tiny{font:10px var(--mono);color:#879187;letter-spacing:.1em}
+
+/* 卡片 */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--white);border:1px solid var(--line);padding:25px;min-height:240px;display:flex;flex-direction:column;transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 35px #203a2a10}
+.card-top{display:flex;justify-content:space-between;align-items:center}
+.tag{font:10px var(--mono);letter-spacing:.08em;color:var(--green);background:#e8eddf;padding:6px 9px;border-radius:2px}
+.card h3{font:500 21px var(--serif);margin:26px 0 9px}
+.card p{font-size:13px;color:var(--muted);margin:0}
+.card-foot{margin-top:auto;padding-top:24px;font:10px var(--mono);color:#89938a;letter-spacing:.1em}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.work{padding:28px;background:#e9e9df;min-height:220px;display:flex;flex-direction:column}
+.work:nth-child(2){background:#e1e8dc}
+.work:nth-child(3){background:#e9e4d8}
+.work:nth-child(4){background:#e4e8e4}
+.work h3{font:500 23px var(--serif);margin:22px 0 8px}
+.work p{font-size:13px;color:#68736b;max-width:400px;margin:0}
+.work .status{margin-top:auto;padding-top:26px;font:10px var(--mono);letter-spacing:.1em;color:#6c796e}
+.interactive-card{cursor:pointer;position:relative}
+.interactive-card:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.interactive-card:after{content:"点击查看 ↗";position:absolute;right:20px;bottom:18px;font:10px var(--mono);letter-spacing:.06em;color:var(--green);opacity:.7}
+.entry.interactive-card:after{content:"查看 ↗";right:34px;bottom:25px}
+.category-card:after{content:"点击进入 ↗"}
+
+/* 文章与联系 */
+.journal{border-top:1px solid var(--line)}
+.entry{display:grid;grid-template-columns:150px 1fr 24px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+.entry time{font:11px var(--mono);color:#879187}
+.entry h3{font:500 19px var(--serif);margin:0 0 5px}
+.entry p{font-size:12px;color:var(--muted);margin:0}
+.entry .arrow{color:var(--green);font-size:20px}
+.contact{background:var(--green);color:#f4f2eb;padding:75px 0;margin-top:20px}
+.contact .kicker{color:#b9c9b8}
+.contact h2{font:500 clamp(35px,5vw,58px)/1.35 var(--serif);margin:20px 0;max-width:700px}
+.contact p{color:#c6d0c6;font-size:14px}
+.contact .btn{border-color:#dce5d7;color:#f4f2eb;margin-top:15px}
+.footer{padding:26px 0;display:flex;justify-content:space-between;gap:15px;font:10px var(--mono);color:var(--muted);letter-spacing:.08em}
+
+/* 动画 */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.cn{display:block}
+.en{display:none}
+.english .cn{display:none}
+.english .en{display:block}
+.english .nav .cn,.english .nav .en{display:inline}
+.english .hero-sub{font-family:var(--sans)}
+.english h1,.english .section h2,.english .quote,.english .card h3,.english .work h3,.english .entry h3,.english .contact h2{font-family:var(--serif)}
+
+/* 弹窗 */
+.modal-backdrop{position:fixed;inset:0;background:#101a15a6;display:none;align-items:center;justify-content:center;padding:22px;z-index:20}
+.modal-backdrop.open{display:flex}
+.modal{width:min(720px,100%);max-height:min(86vh,900px);overflow:auto;background:var(--paper);padding:34px;position:relative;box-shadow:0 24px 80px #0003}
+.modal h3{font:500 29px var(--serif);margin:10px 0 15px}
+.modal p{color:var(--muted);font-size:14px;line-height:1.9;white-space:pre-wrap}
+.modal-close{position:sticky;float:right;top:0;border:1px solid var(--line);background:var(--paper);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px;z-index:2}
+.modal-hint{font:10px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.article-list{margin-top:48px}
+.article-list-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px}
+.article-list-head h3{font:500 24px var(--serif);margin:0}
+.article-list-head p{font-size:12px;color:var(--muted);margin:0}
+.article-row{display:grid;grid-template-columns:120px 1fr 24px;gap:24px;align-items:center;padding:22px 0;border-top:1px solid var(--line);cursor:pointer;transition:.2s}
+.article-row:last-child{border-bottom:1px solid var(--line)}
+.article-row:hover{padding-left:8px;color:var(--green)}
+.article-row time{font:11px var(--mono);color:#879187}
+.article-row h4{font:500 18px var(--serif);margin:0 0 5px}
+.article-row p{font-size:12px;color:var(--muted);margin:0}
+.article-arrow{font-size:20px;color:var(--green)}
+.load-message{padding:20px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+.article-body{color:#48554c;font-size:15px;line-height:2}
+.article-body h1,.article-body h2,.article-body h3{font-family:var(--serif);color:var(--ink);line-height:1.5;margin:1.5em 0 .6em}
+.article-body h1{font-size:27px}
+.article-body h2{font-size:23px}
+.article-body h3{font-size:19px}
+.article-body p{color:#48554c;font-size:15px;line-height:2;white-space:normal;margin:0 0 1em}
+.article-body ul,.article-body ol{padding-left:1.5em}
+.article-body li{margin:.35em 0}
+.article-body blockquote{border-left:3px solid #9aaa8c;margin:1em 0;padding:.2em 1em;color:var(--muted)}
+.article-body code{font-family:var(--mono);font-size:.9em;background:#e8e8df;padding:2px 5px}
+.article-meta{font:11px var(--mono);color:#879187;letter-spacing:.08em;margin-bottom:22px}
 .resource-actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
 .resource-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--green);color:var(--green);font-size:12px;background:transparent}
 .resource-link:hover{background:var(--green);color:var(--white)}
 .empty-state{padding:22px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 
+/* 悬浮联系按钮 */
+.floating-contact{position:fixed;right:25px;bottom:25px;z-index:30}
+.contact-toggle{
+width:58px;height:58px;border:0;border-radius:50%;
+background:var(--green);color:white;font-size:23px;cursor:pointer;
+box-shadow:0 6px 25px #254b3b40;animation:contactPulse 2.5s infinite
+}
+@keyframes contactPulse{
+0%,100%{box-shadow:0 6px 25px #254b3b40}
+50%{box-shadow:0 6px 30px #66887590}
+}
+.contact-popup{
+display:none;position:absolute;right:0;bottom:72px;width:270px;
+padding:22px;background:var(--white);color:var(--ink);
+border:1px solid var(--line);box-shadow:0 12px 35px #203a2a20;border-radius:10px
+}
+.contact-popup.open{display:block;animation:popupIn .25s ease}
+@keyframes popupIn{
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
+}
+.contact-popup h3{font:500 19px var(--serif);margin:0 0 8px}
+.contact-popup p{color:var(--muted);font-size:12px;margin:0 0 15px}
+.contact-email{display:block;padding:11px;background:#e8eddf;color:var(--green);font-size:13px;text-align:center;overflow-wrap:anywhere}
+
+@media(max-width:800px){
+.nav{gap:13px}
+.nav a{display:none}
+.hero{grid-template-columns:1fr;gap:10px;padding:65px 0 80px}
+.visual{height:300px;grid-row:1}
+.hero-copy-wrap{grid-row:2}
+.orb{width:245px}
+.scrollhint{display:none}
+.about-grid{grid-template-columns:1fr;gap:28px}
+.cards{grid-template-columns:1fr 1fr}
+.principles{grid-template-columns:1fr}
+.section{padding:72px 0}
+.section-head{display:block}
+.section-intro{margin-top:20px}
+.work-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+.wrap{width:min(100% - 34px,1160px)}
+.topbar{height:66px}
+.cards,.work-grid{grid-template-columns:1fr}
+.card{min-height:205px}
+.entry{grid-template-columns:1fr 20px;gap:5px}
+.entry time{grid-column:1/-1;margin-bottom:6px}
+.entry h3{font-size:17px}
+.footer{flex-direction:column}
+.visual{height:260px}
+.hero{min-height:auto}
+.section-head{margin-bottom:32px}
+.article-row{grid-template-columns:1fr 20px;gap:5px}
+.article-row time{grid-column:1/-1}
+.article-row h4{font-size:16px}
+.modal{padding:24px 20px}
+.floating-contact{right:16px;bottom:18px}
+}
+@media(prefers-reduced-motion:reduce){
+*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+.reveal{opacity:1;transform:none}
+.contact-toggle{animation:none}
+}
 </style>
 </head>
+
 <body>
+<canvas id="starfield" aria-hidden="true"></canvas>
+
 <header class="wrap topbar">
-  <a class="brand" href="#home"><span class="brand-mark">李</span><span>LI GUOQING</span></a>
-  <nav class="nav" aria-label="Main navigation">
-    <a href="#about"><span class="cn">关于</span><span class="en">About</span></a>
-    <a href="#ideas"><span class="cn">思想</span><span class="en">Ideas</span></a>
-    <a href="#works"><span class="cn">作品</span><span class="en">Works</span></a>
-    <button class="lang" id="langBtn" type="button" aria-label="Switch language">EN / 中文</button>
-  </nav>
+<a class="brand" href="#home"><span class="brand-mark">李</span><span>LI GUOQING</span></a>
+<nav class="nav" aria-label="Main navigation">
+<a href="#about"><span class="cn">关于</span><span class="en">About</span></a>
+<a href="#ideas"><span class="cn">思想</span><span class="en">Ideas</span></a>
+<a href="#works"><span class="cn">作品</span><span class="en">Works</span></a>
+<button class="lang" id="langBtn" type="button" aria-label="Switch language">EN / 中文</button>
+</nav>
 </header>
+
 <main>
 <section class="wrap hero" id="home">
-  <div class="hero-copy-wrap">
-    <div class="eyebrow"><span class="cn">个人主页 · 持续探索中</span><span class="en">PERSONAL SPACE · ALWAYS EXPLORING</span></div>
-    <h1>李国庆<span style="color:#9aaa8c">.</span></h1>
-    <p class="hero-sub"><span class="cn">一个不断学习、思考世界的人。</span><span class="en">A lifelong learner, thinking about the world.</span></p>
-    <p class="hero-copy"><span class="cn">学习不同领域的知识，尝试理解复杂的世界，并把思考转化为真实的作品。</span><span class="en">Exploring ideas across disciplines, making sense of a complex world, and turning reflection into meaningful work.</span></p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#works"><span class="cn">浏览我的作品</span><span class="en">Explore my work</span><span>↗</span></a>
-      <a class="btn secondary" href="#about"><span class="cn">认识这个空间</span><span class="en">About this space</span></a>
-    </div>
-  </div>
-  <div class="visual" aria-label="Abstract green sphere illustration"><div class="orb"></div><div class="visual-note">LEARN / THINK / CREATE</div></div>
-  <div class="scrollhint">SCROLL TO EXPLORE ↓</div>
+<div class="hero-copy-wrap">
+<div class="eyebrow"><span class="cn">个人主页 · 持续探索中</span><span class="en">PERSONAL SPACE · ALWAYS EXPLORING</span></div>
+<h1>李国庆<span style="color:#9aaa8c">.</span></h1>
+<p class="hero-sub"><span class="cn">一个不断学习、思考世界的人。</span><span class="en">A lifelong learner, thinking about the world.</span></p>
+<p class="hero-copy"><span class="cn">学习不同领域的知识，尝试理解复杂的世界，并把思考转化为真实的作品。</span><span class="en">Exploring ideas across disciplines, making sense of a complex world, and turning reflection into meaningful work.</span></p>
+<div class="hero-actions">
+<a class="btn primary" href="#works"><span class="cn">浏览我的作品</span><span class="en">Explore my work</span><span>↗</span></a>
+<a class="btn secondary" href="#about"><span class="cn">认识这个空间</span><span class="en">About this space</span></a>
+</div>
+</div>
+<div class="visual" aria-label="Abstract green sphere illustration"><div class="orb"></div><div class="visual-note">LEARN / THINK / CREATE</div></div>
+<div class="scrollhint">SCROLL TO EXPLORE ↓</div>
 </section>
+
 <section class="section" id="about"><div class="wrap">
-  <div class="section-head reveal"><div><div class="section-no">01 / ABOUT</div><h2><span class="cn">关于这个空间</span><span class="en">A space for exploration</span></h2></div><p class="section-intro"><span class="cn">这里不试图给出一个固定的自我定义，而是展示持续学习、思考与创造的过程。</span><span class="en">Not a fixed definition of a person, but an evolving record of learning, reflection and creation.</span></p></div>
-  <div class="about-grid reveal">
-    <p class="quote"><span class="cn">“保持好奇，保持独立思考，保持行动。”</span><span class="en">“Stay curious. Think independently. Keep creating.”</span></p>
-    <div><p class="about-text"><span class="cn">我对世界始终抱有好奇。知识不应只停留在阅读和记忆里，也应该帮助我们理解现实、提出问题，并尝试解决问题。这个网站是一个开放的个人档案：记录值得保存的想法，整理认真完成的作品，也记录认知不断变化的轨迹。</span><span class="en">I remain curious about the world. Knowledge should go beyond reading and memorization: it should help us understand reality, ask better questions and attempt useful work. This site is an evolving archive of ideas, projects and changing perspectives.</span></p></div>
-  </div>
-  <div class="principles reveal">
-    <div class="principle"><span class="tiny">01 / CURIOSITY</span><b><span class="cn">保持好奇</span><span class="en">Stay curious</span></b><p><span class="cn">持续接触新的问题与领域。</span><span class="en">Keep exploring new questions and fields.</span></p></div>
-    <div class="principle"><span class="tiny">02 / CLARITY</span><b><span class="cn">追求理解</span><span class="en">Seek clarity</span></b><p><span class="cn">不满足于结论，继续追问理由。</span><span class="en">Look beyond conclusions and ask why.</span></p></div>
-    <div class="principle"><span class="tiny">03 / PRACTICE</span><b><span class="cn">知行合一</span><span class="en">Learn by doing</span></b><p><span class="cn">把想法变成实践与作品。</span><span class="en">Turn ideas into practice and work.</span></p></div>
-  </div>
+<div class="section-head reveal"><div><div class="section-no">01 / ABOUT</div><h2><span class="cn">关于这个空间</span><span class="en">A space for exploration</span></h2></div><p class="section-intro"><span class="cn">这里不试图给出一个固定的自我定义，而是展示持续学习、思考与创造的过程。</span><span class="en">Not a fixed definition of a person, but an evolving record of learning, reflection and creation.</span></p></div>
+<div class="about-grid reveal">
+<p class="quote"><span class="cn">“保持好奇，保持独立思考，保持行动。”</span><span class="en">“Stay curious. Think independently. Keep creating.”</span></p>
+<div><p class="about-text"><span class="cn">我对世界始终抱有好奇。知识不应只停留在阅读和记忆里，也应该帮助我们理解现实、提出问题，并尝试解决问题。这个网站是一个开放的个人档案：记录值得保存的想法，整理认真完成的作品，也记录认知不断变化的轨迹。</span><span class="en">I remain curious about the world. Knowledge should go beyond reading and memorization: it should help us understand reality, ask better questions and attempt useful work. This site is an evolving archive of ideas, projects and changing perspectives.</span></p></div>
+</div>
+<div class="principles reveal">
+<div class="principle"><span class="tiny">01 / CURIOSITY</span><b><span class="cn">保持好奇</span><span class="en">Stay curious</span></b><p><span class="cn">持续接触新的问题与领域。</span><span class="en">Keep exploring new questions and fields.</span></p></div>
+<div class="principle"><span class="tiny">02 / CLARITY</span><b><span class="cn">追求理解</span><span class="en">Seek clarity</span></b><p><span class="cn">不满足于结论，继续追问理由。</span><span class="en">Look beyond conclusions and ask why.</span></p></div>
+<div class="principle"><span class="tiny">03 / PRACTICE</span><b><span class="cn">知行合一</span><span class="en">Learn by doing</span></b><p><span class="cn">把想法变成实践与作品。</span><span class="en">Turn ideas into practice and work.</span></p></div>
+</div>
 </div></section>
+
 <section class="section" id="ideas"><div class="wrap">
-  <div class="section-head reveal"><div><div class="section-no">02 / IDEAS</div><h2><span class="cn">思想与探索</span><span class="en">Ideas & exploration</span></h2></div><p class="section-intro"><span class="cn">跨越学科边界，建立自己的理解框架。以下是持续探索的主题，而不是专业身份声明。</span><span class="en">Connecting perspectives across disciplines. These are ongoing interests, not claims of expertise.</span></p></div>
-  <div class="cards">
-    <article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="philosophy" aria-label="打开哲学与人生">
-      <div class="card-top"><span class="tag">PHILOSOPHY</span><span class="tiny">01 / IDEAS</span></div>
-      <h3><span class="cn">哲学与人生</span><span class="en">Philosophy & life</span></h3>
-      <p><span class="cn">关于存在、自由、价值、认知与人生意义的思考。</span><span class="en">Questions of existence, freedom, value, knowledge and meaning.</span></p>
-      <div class="card-foot">QUESTION THE OBVIOUS ↗</div>
-    </article>
-    <article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="economics" aria-label="打开经济与商业">
-      <div class="card-top"><span class="tag">ECONOMICS</span><span class="tiny">02 / IDEAS</span></div>
-      <h3><span class="cn">经济与商业</span><span class="en">Economics & business</span></h3>
-      <p><span class="cn">观察市场、企业、制度与资源如何影响现实世界。</span><span class="en">Exploring markets, companies, institutions and the allocation of resources.</span></p>
-      <div class="card-foot">UNDERSTAND THE SYSTEM ↗</div>
-    </article>
-    <article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="society" aria-label="打开社会与世界">
-      <div class="card-top"><span class="tag">SOCIETY</span><span class="tiny">03 / IDEAS</span></div>
-      <h3><span class="cn">社会与世界</span><span class="en">Society & the world</span></h3>
-      <p><span class="cn">从历史、科学与现实出发，理解社会运行的复杂性。</span><span class="en">Understanding society through history, science and observation.</span></p>
-      <div class="card-foot">SEE THE BIGGER PICTURE ↗</div>
-    </article>
-  </div>
+<div class="section-head reveal"><div><div class="section-no">02 / IDEAS</div><h2><span class="cn">思想与探索</span><span class="en">Ideas & exploration</span></h2></div><p class="section-intro"><span class="cn">跨越学科边界，建立自己的理解框架。以下是持续探索的主题，而不是专业身份声明。</span><span class="en">Connecting perspectives across disciplines. These are ongoing interests, not claims of expertise.</span></p></div>
+<div class="cards">
+<article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="philosophy" aria-label="打开哲学与人生"><div class="card-top"><span class="tag">PHILOSOPHY</span><span class="tiny">01 / IDEAS</span></div><h3><span class="cn">哲学与人生</span><span class="en">Philosophy & life</span></h3><p><span class="cn">关于存在、自由、价值、认知与人生意义的思考。</span><span class="en">Questions of existence, freedom, value, knowledge and meaning.</span></p><div class="card-foot">QUESTION THE OBVIOUS ↗</div></article>
+<article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="economics" aria-label="打开经济与商业"><div class="card-top"><span class="tag">ECONOMICS</span><span class="tiny">02 / IDEAS</span></div><h3><span class="cn">经济与商业</span><span class="en">Economics & business</span></h3><p><span class="cn">观察市场、企业、制度与资源如何影响现实世界。</span><span class="en">Exploring markets, companies, institutions and the allocation of resources.</span></p><div class="card-foot">UNDERSTAND THE SYSTEM ↗</div></article>
+<article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="society" aria-label="打开社会与世界"><div class="card-top"><span class="tag">SOCIETY</span><span class="tiny">03 / IDEAS</span></div><h3><span class="cn">社会与世界</span><span class="en">Society & the world</span></h3><p><span class="cn">从历史、科学与现实出发，理解社会运行的复杂性。</span><span class="en">Understanding society through history, science and observation.</span></p><div class="card-foot">SEE THE BIGGER PICTURE ↗</div></article>
+</div>
 </div></section>
 
 <section class="section" id="works"><div class="wrap">
-  <div class="section-head reveal"><div><div class="section-no">03 / PRACTICE</div><h2><span class="cn">作品与实践</span><span class="en">Works & practice</span></h2></div><p class="section-intro"><span class="cn">这里展示经过整理、可以公开分享的研究、项目与创作。新作品会逐步加入。</span><span class="en">A home for research, projects and creations that are ready to be shared.</span></p></div>
-  <div class="work-grid">
-    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="research" aria-label="打开研究与分析">
-      <span class="tiny">01 / RESEARCH</span><h3><span class="cn">研究与分析</span><span class="en">Research & analysis</span></h3>
-      <p><span class="cn">用于收录专题研究、行业观察、商业分析与学习成果。</span><span class="en">Topic research, industry observations and analytical work.</span></p>
-      <div class="status">作品持续整理中 · IN PROGRESS</div>
-    </article>
-    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="writing" aria-label="打开文章与随笔">
-      <span class="tiny">02 / WRITING</span><h3><span class="cn">文章与随笔</span><span class="en">Essays & writing</span></h3>
-      <p><span class="cn">把零散的思考写清楚，让观点经得起时间与讨论。</span><span class="en">Giving shape to scattered thoughts and ideas through writing.</span></p>
-      <div class="status">等待添加公开文章 · COMING SOON</div>
-    </article>
-    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="digital" aria-label="打开数字项目">
-      <span class="tiny">03 / DIGITAL</span><h3><span class="cn">数字项目</span><span class="en">Digital projects</span></h3>
-      <p><span class="cn">记录网站、工具、数据整理及其他数字化实践。</span><span class="en">Websites, tools, data projects and other digital experiments.</span></p>
-      <div class="status">持续构建 · BUILDING</div>
-    </article>
-    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="notes" aria-label="打开学习档案">
-      <span class="tiny">04 / NOTES</span><h3><span class="cn">学习档案</span><span class="en">Learning archive</span></h3>
-      <p><span class="cn">整理阅读笔记、知识框架与值得反复思考的问题。</span><span class="en">Reading notes, knowledge maps and questions worth revisiting.</span></p>
-      <div class="status">持续积累 · COLLECTING</div>
-    </article>
-  </div>
-</div></section>
-<section class="contact"><div class="wrap reveal"><div class="kicker">04 / CONNECT</div><h2><span class="cn">思想值得交流，作品欢迎讨论。</span><span class="en">Ideas are meant to be shared. Work is open to discussion.</span></h2><p><span class="cn">如果你对这里的某个主题或作品感兴趣，欢迎交流。</span><span class="en">If something here resonates with you, feel free to reach out.</span></p><a class="btn" href="#home"><span class="cn">回到首页</span><span class="en">Back to top</span> ↑</a></div></section>
-</main>
-<div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal"><button class="modal-close" id="modalClose" type="button" aria-label="关闭">×</button><div class="modal-hint">DETAIL / 详情</div><h3 id="modalTitle"></h3><div id="modalMeta" class="article-meta"></div><div id="modalText" class="article-body"></div><div class="modal-hint">LI GUOQING · PERSONAL ARCHIVE</div></div>
+<div class="section-head reveal"><div><div class="section-no">03 / PRACTICE</div><h2><span class="cn">作品与实践</span><span class="en">Works & practice</span></h2></div><p class="section-intro"><span class="cn">这里展示经过整理、可以公开分享的研究、项目与创作。新作品会逐步加入。</span><span class="en">A home for research, projects and creations that are ready to be shared.</span></p></div>
+<div class="work-grid">
+<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="research" aria-label="打开研究与分析"><span class="tiny">01 / RESEARCH</span><h3><span class="cn">研究与分析</span><span class="en">Research & analysis</span></h3><p><span class="cn">用于收录专题研究、行业观察、商业分析与学习成果。</span><span class="en">Topic research, industry observations and analytical work.</span></p><div class="status">作品持续整理中 · IN PROGRESS</div></article>
+<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="writing" aria-label="打开文章与随笔"><span class="tiny">02 / WRITING</span><h3><span class="cn">文章与随笔</span><span class="en">Essays & writing</span></h3><p><span class="cn">把零散的思考写清楚，让观点经得起时间与讨论。</span><span class="en">Giving shape to scattered thoughts and ideas through writing.</span></p><div class="status">等待添加公开文章 · COMING SOON</div></article>
+<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="digital" aria-label="打开数字项目"><span class="tiny">03 / DIGITAL</span><h3><span class="cn">数字项目</span><span class="en">Digital projects</span></h3><p><span class="cn">记录网站、工具、数据整理及其他数字化实践。</span><span class="en">Websites, tools, data projects and other digital experiments.</span></p><div class="status">持续构建 · BUILDING</div></article>
+<article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="notes" aria-label="打开学习档案"><span class="tiny">04 / NOTES</span><h3><span class="cn">学习档案</span><span class="en">Learning archive</span></h3><p><span class="cn">整理阅读笔记、知识框架与值得反复思考的问题。</span><span class="en">Reading notes, knowledge maps and questions worth revisiting.</span></p><div class="status">持续积累 · COLLECTING</div></article>
 </div>
-<footer class="wrap footer"><span>© <span id="year"></span> LI GUOQING</span><span>LEARN · THINK · CREATE</span><span><span class="cn">持续更新中</span><span class="en">ALWAYS IN PROGRESS</span></span></footer>
+</div></section>
+
+<section class="contact"><div class="wrap reveal"><div class="kicker">04 / CONNECT</div><h2><span class="cn">思想值得交流，作品欢迎讨论。</span><span class="en">Ideas are meant to be shared. Work is open to discussion.</span></h2><p><span class="cn">如果你对这里的某个主题或作品感兴趣，欢迎交流。</span><span class="en">If something here resonates with you, feel free to reach out.</span></p><a class="btn" href="mailto:3131226292@qq.com">✉ 3131226292@qq.com</a></div></section>
+</main>
+
+<div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal">
+<button class="modal-close" id="modalClose" type="button" aria-label="关闭">×</button>
+<div class="modal-hint">DETAIL / 详情</div>
+<h3 id="modalTitle"></h3>
+<div id="modalMeta" class="article-meta"></div>
+<div id="modalText" class="article-body"></div>
+<div class="modal-hint">LI GUOQING · PERSONAL ARCHIVE</div>
+</div>
+</div>
+
+<!-- 悬浮联系按钮 -->
+<div class="floating-contact">
+<div class="contact-popup" id="contactPopup">
+<h3>联系我 · CONTACT</h3>
+<p>欢迎交流思想、分享观点与合作。</p>
+<a class="contact-email" href="mailto:3131226292@qq.com">✉ 3131226292@qq.com</a>
+</div>
+<button class="contact-toggle" id="contactToggle" type="button" aria-label="打开联系方式" aria-expanded="false">✉</button>
+</div>
+
+<footer class="wrap footer">
+<span>© <span id="year"></span> LI GUOQING</span>
+<span>LEARN · THINK · CREATE</span>
+<span><span class="cn">持续更新中</span><span class="en">ALWAYS IN PROGRESS</span></span>
+</footer>
+
 <script>
+/* 中英文切换 */
 const langBtn=document.getElementById('langBtn');
 langBtn.addEventListener('click',()=>{
-  document.body.classList.toggle('english');
-  document.documentElement.lang=document.body.classList.contains('english')?'en':'zh-CN';
+document.body.classList.toggle('english');
+document.documentElement.lang=document.body.classList.contains('english')?'en':'zh-CN';
 });
 document.getElementById('year').textContent=new Date().getFullYear();
 
+/* 滚动进入动画 */
 if('IntersectionObserver' in window){
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
-  }),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 }else{
-  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
 }
 
+/* 星空粒子动画 */
+const canvas=document.getElementById('starfield');
+const ctx=canvas.getContext('2d');
+let stars=[];
+let mouse={x:-1000,y:-1000};
+let frame=0;
+const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function resizeStars(){
+const ratio=Math.min(window.devicePixelRatio||1,2);
+canvas.width=window.innerWidth*ratio;
+canvas.height=window.innerHeight*ratio;
+ctx.setTransform(ratio,0,0,ratio,0,0);
+const count=Math.min(110,Math.floor(window.innerWidth*window.innerHeight/11000));
+stars=Array.from({length:count},()=>({
+x:Math.random()*window.innerWidth,
+y:Math.random()*window.innerHeight,
+r:Math.random()*1.7+.5,
+vx:(Math.random()-.5)*.25,
+vy:(Math.random()-.5)*.25
+}));
+}
+function drawStars(){
+ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+stars.forEach(star=>{
+star.x+=star.vx;
+star.y+=star.vy;
+if(star.x<0||star.x>window.innerWidth)star.vx*=-1;
+if(star.y<0||star.y>window.innerHeight)star.vy*=-1;
+const dx=star.x-mouse.x;
+const dy=star.y-mouse.y;
+const distance=Math.sqrt(dx*dx+dy*dy);
+if(distance<120){
+ctx.beginPath();
+ctx.moveTo(star.x,star.y);
+ctx.lineTo(mouse.x,mouse.y);
+ctx.strokeStyle='rgba(76,112,83,.16)';
+ctx.stroke();
+}
+ctx.beginPath();
+ctx.arc(star.x,star.y,star.r,0,Math.PI*2);
+ctx.fillStyle='rgba(65,99,73,.65)';
+ctx.fill();
+});
+if(!reducedMotion)frame=requestAnimationFrame(drawStars);
+}
+window.addEventListener('resize',resizeStars);
+window.addEventListener('mousemove',event=>{
+mouse.x=event.clientX;
+mouse.y=event.clientY;
+});
+resizeStars();
+drawStars();
+
+/* 联系按钮 */
+const contactToggle=document.getElementById('contactToggle');
+const contactPopup=document.getElementById('contactPopup');
+contactToggle.addEventListener('click',()=>{
+const opened=contactPopup.classList.toggle('open');
+contactToggle.setAttribute('aria-expanded',opened);
+contactToggle.textContent=opened?'×':'✉';
+});
+document.addEventListener('click',event=>{
+if(!event.target.closest('.floating-contact')){
+contactPopup.classList.remove('open');
+contactToggle.setAttribute('aria-expanded','false');
+contactToggle.textContent='✉';
+}
+});
+
+/* 文章与分类读取 */
 const modal=document.getElementById('detailModal');
 const modalTitle=document.getElementById('modalTitle');
 const modalText=document.getElementById('modalText');
 const modalMeta=document.getElementById('modalMeta');
 
 function openModal(title,content,meta='',isHtml=false){
-  modalTitle.textContent=title;
-  modalMeta.textContent=meta;
-  if(isHtml) modalText.innerHTML=content;
-  else modalText.textContent=content;
-  modal.classList.add('open');
-  document.body.style.overflow='hidden';
-  document.getElementById('modalClose').focus();
+modalTitle.textContent=title;
+modalMeta.textContent=meta;
+if(isHtml)modalText.innerHTML=content;
+else modalText.textContent=content;
+modal.classList.add('open');
+document.body.style.overflow='hidden';
+document.getElementById('modalClose').focus();
 }
 function closeModal(){
-  modal.classList.remove('open');
-  document.body.style.overflow='';
+modal.classList.remove('open');
+document.body.style.overflow='';
 }
 document.getElementById('modalClose').addEventListener('click',closeModal);
 modal.addEventListener('click',event=>{if(event.target===modal)closeModal();});
@@ -159,163 +431,157 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal()
 
 const REPO='shiyi4576-commits/li-guoqing-personal';
 const CATEGORY_CONFIG={
-  philosophy:{title:'哲学与人生',folder:'ideas',kind:'idea'},
-  economics:{title:'经济与商业',folder:'economics',kind:'idea'},
-  society:{title:'社会与世界',folder:'society',kind:'idea'},
-  research:{title:'研究与分析',folder:'research',kind:'work'},
-  writing:{title:'文章与随笔',folder:'articles',kind:'work'},
-  digital:{title:'数字项目',folder:'digital',kind:'work'},
-  notes:{title:'学习档案',folder:'notes',kind:'work'}
+philosophy:{title:'哲学与人生',folder:'ideas',kind:'idea'},
+economics:{title:'经济与商业',folder:'economics',kind:'idea'},
+society:{title:'社会与世界',folder:'society',kind:'idea'},
+research:{title:'研究与分析',folder:'research',kind:'work'},
+writing:{title:'文章与随笔',folder:'articles',kind:'work'},
+digital:{title:'数字项目',folder:'digital',kind:'work'},
+notes:{title:'学习档案',folder:'notes',kind:'work'}
 };
 const loadedCache={};
 
 function escapeHTML(value){
-  return String(value??'').replace(/[&<>"']/g,char=>({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  }[char]));
+return String(value??'').replace(/[&<>"']/g,char=>({
+'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+}[char]));
 }
 function parseMarkdownFile(source){
-  let body=String(source??'').replace(/^\uFEFF/,'');
-  const match=body.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*(?:\r?\n|$)/);
-  const meta={};
-  if(match){
-    match[1].split(/\r?\n/).forEach(line=>{
-      const m=line.match(/^([A-Za-z0-9_-]+)\s*:\s*(.*)$/);
-      if(m) meta[m[1]]=m[2].trim().replace(/^["']|["']$/g,'');
-    });
-    body=body.slice(match[0].length);
-  }
-  return {
-    title:meta.title||'未命名内容',
-    date:meta.date||'',
-    summary:meta.summary||meta.description||'',
-    file:meta.file||meta.attachment||'',
-    url:meta.url||meta.link||'',
-    body:body.trim()
-  };
+let body=String(source??'').replace(/^\uFEFF/,'');
+const match=body.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*(?:\r?\n|$)/);
+const meta={};
+if(match){
+match[1].split(/\r?\n/).forEach(line=>{
+const m=line.match(/^([A-Za-z0-9_-]+)\s*:\s*(.*)$/);
+if(m)meta[m[1]]=m[2].trim().replace(/^["']|["']$/g,'');
+});
+body=body.slice(match[0].length);
+}
+return{
+title:meta.title||'未命名内容',
+date:meta.date||'',
+summary:meta.summary||meta.description||'',
+file:meta.file||meta.attachment||'',
+url:meta.url||meta.link||'',
+body:body.trim()
+};
 }
 function safeUrl(value){
-  const raw=String(value||'').trim();
-  if(!raw) return '';
-  if(/^https?:\/\//i.test(raw)) return raw;
-  if(raw.startsWith('/')) return new URL(raw,window.location.origin).href;
-  return new URL(raw,window.location.href).href;
+const raw=String(value||'').trim();
+if(!raw)return '';
+if(/^https?:\/\//i.test(raw))return raw;
+if(raw.startsWith('/'))return new URL(raw,window.location.origin).href;
+return new URL(raw,window.location.href).href;
 }
 function inlineMarkdown(text){
-  let out=escapeHTML(text);
-  out=out.replace(/`([^`]+)`/g,'<code>$1</code>');
-  out=out.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
-  out=out.replace(/\*([^*]+)\*/g,'<em>$1</em>');
-  out=out.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-  return out;
+let out=escapeHTML(text);
+out=out.replace(/`([^`]+)`/g,'<code>$1</code>');
+out=out.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+out=out.replace(/\*([^*]+)\*/g,'<em>$1</em>');
+out=out.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+return out;
 }
 function markdownToHTML(markdown){
-  const lines=String(markdown||'').replace(/\r/g,'').split('\n');
-  const out=[];
-  let paragraph=[],listType='';
-  const flushParagraph=()=>{
-    if(paragraph.length){out.push('<p>'+paragraph.map(inlineMarkdown).join('<br>')+'</p>');paragraph=[];}
-  };
-  const closeList=()=>{if(listType){out.push(listType==='ul'?'</ul>':'</ol>');listType='';}};
-  for(const rawLine of lines){
-    const line=rawLine.trim();
-    if(!line){flushParagraph();closeList();continue;}
-    const heading=line.match(/^(#{1,3})\s+(.+)$/);
-    if(heading){flushParagraph();closeList();const level=heading[1].length;out.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);continue;}
-    const bullet=line.match(/^[-*]\s+(.+)$/);
-    const numbered=line.match(/^\d+\.\s+(.+)$/);
-    if(bullet||numbered){
-      flushParagraph();const wanted=bullet?'ul':'ol';
-      if(listType!==wanted){closeList();out.push(wanted==='ul'?'<ul>':'<ol>');listType=wanted;}
-      out.push('<li>'+inlineMarkdown((bullet||numbered)[1])+'</li>');continue;
-    }
-    if(line.startsWith('>')){
-      flushParagraph();closeList();out.push('<blockquote>'+inlineMarkdown(line.replace(/^>\s?/,''))+'</blockquote>');continue;
-    }
-    paragraph.push(line);
-  }
-  flushParagraph();closeList();
-  return out.join('');
+const lines=String(markdown||'').replace(/\r/g,'').split('\n');
+const out=[];
+let paragraph=[],listType='';
+const flushParagraph=()=>{
+if(paragraph.length){out.push('<p>'+paragraph.map(inlineMarkdown).join('<br>')+'</p>');paragraph=[];}
+};
+const closeList=()=>{if(listType){out.push(listType==='ul'?'</ul>':'</ol>');listType='';}};
+for(const rawLine of lines){
+const line=rawLine.trim();
+if(!line){flushParagraph();closeList();continue;}
+const heading=line.match(/^(#{1,3})\s+(.+)$/);
+if(heading){flushParagraph();closeList();const level=heading[1].length;out.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);continue;}
+const bullet=line.match(/^[-*]\s+(.+)$/);
+const numbered=line.match(/^\d+\.\s+(.+)$/);
+if(bullet||numbered){
+flushParagraph();
+const wanted=bullet?'ul':'ol';
+if(listType!==wanted){closeList();out.push(wanted==='ul'?'<ul>':'<ol>');listType=wanted;}
+out.push('<li>'+inlineMarkdown((bullet||numbered)[1])+'</li>');
+continue;
+}
+if(line.startsWith('>')){
+flushParagraph();closeList();
+out.push('<blockquote>'+inlineMarkdown(line.replace(/^>\s?/,''))+'</blockquote>');
+continue;
+}
+paragraph.push(line);
+}
+flushParagraph();closeList();
+return out.join('');
 }
 function buildResourceActions(item){
-  const links=[];
-  const fileUrl=safeUrl(item.file);
-  const externalUrl=safeUrl(item.url);
-  if(fileUrl) links.push(`<a class="resource-link" href="${escapeHTML(fileUrl)}" target="_blank" rel="noopener noreferrer">打开 / 下载附件 ↗</a>`);
-  if(externalUrl) links.push(`<a class="resource-link" href="${escapeHTML(externalUrl)}" target="_blank" rel="noopener noreferrer">访问项目 ↗</a>`);
-  return links.length?'<div class="resource-actions">'+links.join('')+'</div>':'';
+const links=[];
+const fileUrl=safeUrl(item.file);
+const externalUrl=safeUrl(item.url);
+if(fileUrl)links.push(`<a class="resource-link" href="${escapeHTML(fileUrl)}" target="_blank" rel="noopener noreferrer">打开 / 下载附件 ↗</a>`);
+if(externalUrl)links.push(`<a class="resource-link" href="${escapeHTML(externalUrl)}" target="_blank" rel="noopener noreferrer">访问项目 ↗</a>`);
+return links.length?'<div class="resource-actions">'+links.join('')+'</div>':'';
 }
 async function fetchCategory(categoryKey){
-  if(loadedCache[categoryKey]) return loadedCache[categoryKey];
-  const config=CATEGORY_CONFIG[categoryKey];
-  const api=`https://api.github.com/repos/${REPO}/contents/content/${config.folder}`;
-  const response=await fetch(api,{headers:{'Accept':'application/vnd.github+json'}});
-  if(response.status===404){loadedCache[categoryKey]=[];return [];}
-  if(!response.ok) throw new Error('GitHub API '+response.status);
-  const files=await response.json();
-  const markdownFiles=files.filter(file=>file.type==='file'&&file.name.toLowerCase().endsWith('.md'));
-  const items=await Promise.all(markdownFiles.map(async file=>{
-    const result=await fetch(file.download_url);
-    if(!result.ok) throw new Error('无法读取文件 '+file.name);
-    return {...parseMarkdownFile(await result.text()),fileName:file.name};
-  }));
-  items.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-  loadedCache[categoryKey]=items;
-  return items;
+if(loadedCache[categoryKey])return loadedCache[categoryKey];
+const config=CATEGORY_CONFIG[categoryKey];
+const api=`https://api.github.com/repos/${REPO}/contents/content/${config.folder}`;
+const response=await fetch(api,{headers:{'Accept':'application/vnd.github+json'}});
+if(response.status===404){loadedCache[categoryKey]=[];return [];}
+if(!response.ok)throw new Error('GitHub API '+response.status);
+const files=await response.json();
+const markdownFiles=files.filter(file=>file.type==='file'&&file.name.toLowerCase().endsWith('.md'));
+const items=await Promise.all(markdownFiles.map(async file=>{
+const result=await fetch(file.download_url);
+if(!result.ok)throw new Error('无法读取文件 '+file.name);
+return{...parseMarkdownFile(await result.text()),fileName:file.name};
+}));
+items.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+loadedCache[categoryKey]=items;
+return items;
 }
 function showItem(categoryKey,item){
-  const config=CATEGORY_CONFIG[categoryKey];
-  const actions=config.kind==='work'?buildResourceActions(item):'';
-  const body=markdownToHTML(item.body);
-  const html=actions+body;
-  openModal(item.title,html,item.date?'PUBLISHED / '+item.date:config.title,true);
+const config=CATEGORY_CONFIG[categoryKey];
+const actions=config.kind==='work'?buildResourceActions(item):'';
+const body=markdownToHTML(item.body);
+openModal(item.title,actions+body,item.date?'PUBLISHED / '+item.date:config.title,true);
 }
 async function openCategory(categoryKey){
-  const config=CATEGORY_CONFIG[categoryKey];
-  openModal(config.title,'正在读取内容……','LOADING');
-  try{
-    const items=await fetchCategory(categoryKey);
-    if(!items.length){
-      modalMeta.textContent='CONTENT / 内容归档';
-      modalText.innerHTML='<div class="empty-state">这个分类暂时还没有发布内容。你可以在 Pages CMS 对应栏目中新增内容，保存后刷新网站即可看到。</div>';
-      return;
-    }
-    modalMeta.textContent=`${items.length} ITEMS / ${config.kind==='idea'?'思想文章':'作品档案'}`;
-    modalText.innerHTML=items.map((item,index)=>`
-      <article class="article-row category-entry" tabindex="0" role="button" data-index="${index}">
-        <time>${escapeHTML(item.date||'ARCHIVE')}</time>
-        <div><h4>${escapeHTML(item.title)}</h4><p>${escapeHTML(item.summary||'点击查看详情')}</p></div>
-        <span class="article-arrow">↗</span>
-      </article>`).join('');
-    modalText.querySelectorAll('.category-entry').forEach(row=>{
-      const open=()=>showItem(categoryKey,items[Number(row.dataset.index)]);
-      row.addEventListener('click',open);
-      row.addEventListener('keydown',event=>{
-        if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
-      });
-    });
-  }catch(error){
-    console.error(error);
-    modalMeta.textContent='LOAD ERROR / 读取失败';
-    modalText.innerHTML='<div class="empty-state">暂时无法读取这个分类。请确认 GitHub 仓库为公开状态、文件夹名称正确，并稍后刷新重试。</div>';
-  }
+const config=CATEGORY_CONFIG[categoryKey];
+openModal(config.title,'正在读取内容……','LOADING');
+try{
+const items=await fetchCategory(categoryKey);
+if(!items.length){
+modalMeta.textContent='CONTENT / 内容归档';
+modalText.innerHTML='<div class="empty-state">这个分类暂时还没有发布内容。你可以在 Pages CMS 对应栏目中新增内容，保存后刷新网站即可看到。</div>';
+return;
+}
+modalMeta.textContent=`${items.length} ITEMS / ${config.kind==='idea'?'思想文章':'作品档案'}`;
+modalText.innerHTML=items.map((item,index)=>`
+<article class="article-row category-entry" tabindex="0" role="button" data-index="${index}">
+<time>${escapeHTML(item.date||'ARCHIVE')}</time>
+<div><h4>${escapeHTML(item.title)}</h4><p>${escapeHTML(item.summary||'点击查看详情')}</p></div>
+<span class="article-arrow">↗</span>
+</article>`).join('');
+modalText.querySelectorAll('.category-entry').forEach(row=>{
+const open=()=>showItem(categoryKey,items[Number(row.dataset.index)]);
+row.addEventListener('click',open);
+row.addEventListener('keydown',event=>{
+if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
+});
+});
+}catch(error){
+console.error(error);
+modalMeta.textContent='LOAD ERROR / 读取失败';
+modalText.innerHTML='<div class="empty-state">暂时无法读取这个分类。请确认 GitHub 仓库为公开状态、文件夹名称正确，并稍后刷新重试。</div>';
+}
 }
 document.querySelectorAll('.category-card').forEach(card=>{
-  const open=()=>openCategory(card.dataset.category);
-  card.addEventListener('click',open);
-  card.addEventListener('keydown',event=>{
-    if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
-  });
+const open=()=>openCategory(card.dataset.category);
+card.addEventListener('click',open);
+card.addEventListener('keydown',event=>{
+if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
+});
 });
 </script>
-
-<section id="contact" style="max-width:800px;margin:60px auto;padding:40px 20px;text-align:center;">
-  <h2>联系我 · CONTACT</h2>
-  <p>欢迎交流思想、分享观点与合作。</p>
-  <a href="mailto:3131226292@qq.com"
-     style="display:inline-block;margin-top:20px;padding:14px 28px;border:1px solid currentColor;border-radius:8px;text-decoration:none;color:inherit;">
-    ✉ 3131226292@qq.com
-  </a>
-</section>
 </body>
 </html>
