@@ -3,110 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="李国庆的个人空间：学习、思考、商业与世界。">
-<title>李国庆 — A Life in Progress</title>
+<meta name="theme-color" content="#f4f2eb">
+<title>李国庆｜学习、思考与创造</title>
+<meta name="description" content="李国庆的个人网站：记录思想、学习、研究与作品。一个不断学习、思考世界的人。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600&display=swap');
-:root{--ink:#17221c;--paper:#e9e8df;--soft:#d9ddd2;--sage:#aab99e;--muted:#788277;--line:rgba(23,34,28,.18);--dark:#111a15}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:'DM Sans','Noto Serif SC',sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}
-.topbar{height:76px;padding:0 6.5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:absolute;top:0;left:0;width:100%;z-index:10}
-.logo{font:500 11px 'DM Mono',monospace;letter-spacing:.16em}.nav{display:flex;gap:32px;align-items:center}.nav a{font:11px 'DM Mono',monospace;letter-spacing:.12em;opacity:.72;transition:.25s}.nav a:hover{opacity:1}
-.lang{border:1px solid var(--line);background:transparent;padding:9px 12px;font:10px 'DM Mono',monospace;letter-spacing:.12em;cursor:pointer}
-.hero{min-height:100vh;position:relative;overflow:hidden;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;padding:150px 10vw 100px;background:var(--paper)}
-.hero-copy{position:relative;z-index:2}.kicker,.eyebrow{font:10px 'DM Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#65745f}
-h1{font:400 clamp(62px,9vw,126px)/1.08 'Noto Serif SC',serif;letter-spacing:-.06em;margin:28px 0 18px}
-.name-en{font:400 clamp(16px,2vw,24px) 'DM Mono',monospace;letter-spacing:.28em;color:#697568}
-.tagline{font:400 clamp(20px,2.5vw,30px)/1.6 'Noto Serif SC',serif;margin:44px 0 16px;max-width:540px}
-.lead{font-size:14px;line-height:2;color:#657066;max-width:440px;margin:0}
-.hero-meta{display:flex;align-items:center;gap:18px;margin-top:48px;font:10px 'DM Mono',monospace;letter-spacing:.12em;color:#697568}
-.hero-meta:before{content:"";width:42px;height:1px;background:#899783}
-.art{height:min(65vh,610px);min-height:390px;position:relative;display:flex;align-items:center;justify-content:center}
-.orb{width:min(36vw,440px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 36% 30%,#d8dfd0 0,#aab99e 22%,#74866f 54%,#33473b 100%);box-shadow:inset -28px -30px 70px rgba(10,24,15,.25),0 35px 90px rgba(30,48,35,.18);position:relative;animation:drift 9s ease-in-out infinite}
-.orb:before,.orb:after{content:"";position:absolute;border:1px solid rgba(34,54,40,.32);border-radius:50%;inset:-9%;transform:rotate(-28deg) scaleY(.34)}
-.orb:after{inset:-18%;transform:rotate(34deg) scaleY(.24);border-color:rgba(34,54,40,.22)}
-.orb-mark{position:absolute;z-index:2;font:italic 18px Georgia,serif;letter-spacing:.16em;color:rgba(239,239,222,.82);right:4%;bottom:12%;transform:rotate(-12deg)}
-.art-caption{position:absolute;right:0;bottom:2%;font:9px 'DM Mono',monospace;letter-spacing:.18em;color:#778274;writing-mode:vertical-rl}
-.scroll-cue{position:absolute;bottom:35px;left:6.5vw;display:flex;align-items:center;gap:14px;font:9px 'DM Mono',monospace;letter-spacing:.18em;color:#697568}
-.scroll-cue:before{content:"";height:1px;width:38px;background:#879480}
-.section{padding:120px 10vw;border-top:1px solid var(--line)}
-.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;margin-bottom:52px}
-.index{font:10px 'DM Mono',monospace;letter-spacing:.16em;color:#6f7e69}
-h2{font:400 clamp(34px,5vw,60px)/1.25 'Noto Serif SC',serif;margin:16px 0 0;letter-spacing:-.04em}
-.side-note{max-width:240px;font-size:12px;line-height:1.9;color:#778277;padding-top:26px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:9vw}
-.about-statement{font:400 clamp(22px,3vw,34px)/1.65 'Noto Serif SC',serif;max-width:520px}
-.body-copy{font-size:14px;line-height:2.1;color:#687368;max-width:480px}
-.values{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.values span{border:1px solid var(--line);padding:9px 13px;font:9px 'DM Mono',monospace;letter-spacing:.1em;color:#62705f}
-.explore{background:var(--dark);color:var(--paper)}.explore .index,.explore .side-note{color:#a8b69e}
-.explore-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(233,232,223,.2)}
-.topic{padding:34px 28px 28px 0;border-right:1px solid rgba(233,232,223,.2);min-height:250px;transition:.3s}.topic:not(:first-child){padding-left:28px}.topic:last-child{border-right:0}
-.topic-no{font:10px 'DM Mono',monospace;color:#a8b69e}.topic h3{font:400 26px 'Noto Serif SC',serif;margin:36px 0 14px}.topic p{font-size:12px;line-height:2;color:#aab2a7;max-width:260px}.topic:hover{transform:translateY(-5px)}
-.journal-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:8vw}.journal-quote{font:400 clamp(26px,4vw,46px)/1.6 'Noto Serif SC',serif;max-width:600px}.journal-detail{align-self:end;font-size:13px;line-height:2;color:#6d786c;max-width:360px}
-.contact{background:#dce1d5;padding-top:90px;padding-bottom:90px}.contact-row{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}.contact h2{max-width:600px}.contact-link{font:11px 'DM Mono',monospace;letter-spacing:.12em;border-bottom:1px solid var(--ink);padding-bottom:10px;white-space:nowrap}
-footer{padding:28px 6.5vw;background:var(--dark);color:#aab2a7;display:flex;justify-content:space-between;font:9px 'DM Mono',monospace;letter-spacing:.12em}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
-@keyframes drift{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-16px) rotate(2deg)}}
-@media(max-width:800px){.topbar{padding:0 6vw}.nav{gap:14px}.nav a{display:none}.hero{grid-template-columns:1fr;padding:140px 8vw 90px}.art{height:330px;min-height:0;margin-top:10px}.orb{width:min(62vw,310px)}.art-caption{right:2%}.section{padding:85px 8vw}.section-head{display:block}.side-note{padding-top:18px}.about-grid,.journal-grid{grid-template-columns:1fr;gap:28px}.explore-grid{grid-template-columns:1fr}.topic,.topic:not(:first-child){padding:28px 0;border-right:0;border-bottom:1px solid rgba(233,232,223,.2);min-height:0}.topic h3{margin:18px 0 8px}.contact-row{display:block}.contact-link{display:inline-block;margin-top:35px}footer{padding:24px 8vw;gap:12px;flex-direction:column}}
+:root{--paper:#f4f2eb;--ink:#202a25;--muted:#68736b;--green:#254b3b;--line:#d9ddd4;--lime:#d8e3b8;--white:#fffefa;--serif:"Noto Serif SC",Georgia,serif;--sans:"DM Sans","Microsoft YaHei",sans-serif;--mono:"DM Mono",monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;gap:12px;align-items:center;font-weight:700;letter-spacing:.04em}.brand-mark{width:34px;height:34px;border-radius:50%;background:var(--green);color:#f4f2eb;display:grid;place-items:center;font-family:var(--serif);font-size:16px}.nav{display:flex;align-items:center;gap:28px;font-size:13px;color:#526057}.nav a:hover{color:var(--green)}.lang{border:1px solid var(--line);background:transparent;border-radius:30px;padding:8px 13px;font-size:12px;cursor:pointer}.hero{min-height:620px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px;padding:80px 0 90px;position:relative}.eyebrow,.kicker{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}h1{font-family:var(--serif);font-size:clamp(54px,8vw,100px);line-height:1.12;letter-spacing:-.06em;font-weight:500;margin:28px 0 22px}.hero-sub{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);color:var(--green);line-height:1.7;margin:0 0 18px}.hero-copy{max-width:480px;color:var(--muted);font-size:15px}.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 19px;border-radius:3px;font-size:13px;border:1px solid var(--green);transition:.25s}.btn.primary{background:var(--green);color:var(--white)}.btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px #243d2b18}.btn.secondary{color:var(--green)}.visual{height:410px;position:relative;display:grid;place-items:center;overflow:hidden}.orb{width:min(340px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 34% 28%,#eff0d7 0 7%,#b8c8a6 24%,#668875 51%,#254b3b 74%,#172e25 100%);box-shadow:inset -24px -28px 55px #14281d70,0 35px 70px #254b3b24;animation:float 8s ease-in-out infinite;position:relative}.orb:before,.orb:after{content:"";position:absolute;border:1px solid #55705e55;border-radius:50%;inset:-22px;transform:rotate(-24deg) scaleY(.35)}.orb:after{inset:-55px;transform:rotate(28deg) scaleY(.28);border-color:#8c9c7d80}.visual-note{position:absolute;right:2%;bottom:7%;font:10px var(--mono);letter-spacing:.12em;color:var(--muted)}@keyframes float{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-17px) rotate(4deg)}}.scrollhint{position:absolute;bottom:28px;left:0;font:10px var(--mono);letter-spacing:.15em;color:var(--muted)}.section{padding:100px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}.section-no{font:11px var(--mono);color:var(--muted);letter-spacing:.12em}.section h2{font:500 clamp(32px,4vw,48px)/1.25 var(--serif);margin:12px 0 0;letter-spacing:-.04em}.section-intro{max-width:390px;color:var(--muted);font-size:14px;margin:0}.about-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px}.quote{font:500 25px/1.8 var(--serif);color:var(--green);margin:0}.about-text{max-width:650px;color:#59645d;font-size:15px}.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:42px}.principle{padding:22px 20px;border:1px solid var(--line);min-height:145px;background:#ffffff38}.principle b{display:block;font:18px var(--serif);margin:15px 0 5px}.principle p{font-size:12px;color:var(--muted);margin:0}.tiny{font:10px var(--mono);color:#879187;letter-spacing:.1em}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--white);border:1px solid var(--line);padding:25px;min-height:240px;display:flex;flex-direction:column;transition:.25s}.card:hover{transform:translateY(-5px);box-shadow:0 16px 35px #203a2a10}.card-top{display:flex;justify-content:space-between;align-items:center}.tag{font:10px var(--mono);letter-spacing:.08em;color:var(--green);background:#e8eddf;padding:6px 9px;border-radius:2px}.card h3{font:500 21px var(--serif);margin:26px 0 9px}.card p{font-size:13px;color:var(--muted);margin:0}.card-foot{margin-top:auto;padding-top:24px;font:10px var(--mono);color:#89938a;letter-spacing:.1em}.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.work{padding:28px;background:#e9e9df;min-height:220px;display:flex;flex-direction:column}.work:nth-child(2){background:#e1e8dc}.work:nth-child(3){background:#e9e4d8}.work:nth-child(4){background:#e4e8e4}.work h3{font:500 23px var(--serif);margin:22px 0 8px}.work p{font-size:13px;color:#68736b;max-width:400px;margin:0}.work .status{margin-top:auto;padding-top:26px;font:10px var(--mono);letter-spacing:.1em;color:#6c796e}.journal{border-top:1px solid var(--line)}.entry{display:grid;grid-template-columns:150px 1fr 24px;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}.entry time{font:11px var(--mono);color:#879187}.entry h3{font:500 19px var(--serif);margin:0 0 5px}.entry p{font-size:12px;color:var(--muted);margin:0}.entry .arrow{color:var(--green);font-size:20px}.contact{background:var(--green);color:#f4f2eb;padding:75px 0;margin-top:20px}.contact .kicker{color:#b9c9b8}.contact h2{font:500 clamp(35px,5vw,58px)/1.35 var(--serif);margin:20px 0;max-width:700px}.contact p{color:#c6d0c6;font-size:14px}.contact .btn{border-color:#dce5d7;color:#f4f2eb;margin-top:15px}.footer{padding:26px 0;display:flex;justify-content:space-between;gap:15px;font:10px var(--mono);color:var(--muted);letter-spacing:.08em}.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}.cn{display:block}.en{display:none}.english .cn{display:none}.english .en{display:block}.english .nav .cn,.english .nav .en{display:inline}.english .hero-sub{font-family:var(--sans)}.english h1,.english .section h2,.english .quote,.english .card h3,.english .work h3,.english .entry h3,.english .contact h2{font-family:var(--serif)}
+@media(max-width:800px){.nav{gap:13px}.nav a{display:none}.hero{grid-template-columns:1fr;gap:10px;padding:65px 0 80px}.visual{height:300px;grid-row:1}.hero-copy-wrap{grid-row:2}.orb{width:245px}.scrollhint{display:none}.about-grid{grid-template-columns:1fr;gap:28px}.cards{grid-template-columns:1fr 1fr}.principles{grid-template-columns:1fr}.section{padding:72px 0}.section-head{display:block}.section-intro{margin-top:20px}.work-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.wrap{width:min(100% - 34px,1160px)}.topbar{height:66px}.cards,.work-grid{grid-template-columns:1fr}.card{min-height:205px}.entry{grid-template-columns:1fr 20px;gap:5px}.entry time{grid-column:1/-1;margin-bottom:6px}.entry h3{font-size:17px}.footer{flex-direction:column}.visual{height:260px}.hero{min-height:auto}.section-head{margin-bottom:32px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<nav class="topbar">
-  <a class="logo" href="#">LG / PERSONAL ARCHIVE</a>
-  <div class="nav">
-    <a href="#about" data-zh="关于" data-en="ABOUT">关于</a>
-    <a href="#explore" data-zh="探索" data-en="EXPLORE">探索</a>
-    <a href="#journal" data-zh="手记" data-en="JOURNAL">手记</a>
-    <a href="#contact" data-zh="联系" data-en="CONTACT">联系</a>
-    <button class="lang" id="lang">EN / 中</button>
-  </div>
-</nav>
-<main>
-<header class="hero">
-  <div class="hero-copy">
-    <div class="kicker" data-zh="一个持续生长的个人空间" data-en="A PERSONAL SPACE IN PROGRESS">一个持续生长的个人空间</div>
-    <h1>李国庆</h1>
-    <div class="name-en">LI GUOQING</div>
-    <p class="tagline" data-zh="一个不断学习、思考世界的人。" data-en="A person who keeps learning and thinking about the world.">一个不断学习、思考世界的人。</p>
-    <p class="lead" data-zh="从问题出发，在阅读、观察与实践中寻找理解。记录思考，也记录一个人不断变化的过程。" data-en="Starting with questions, seeking understanding through reading, observation, and practice. A place to record ideas and the ongoing process of becoming.">从问题出发，在阅读、观察与实践中寻找理解。记录思考，也记录一个人不断变化的过程。</p>
-    <div class="hero-meta"><span>LEARNING</span><span>·</span><span>THINKING</span><span>·</span><span>EXPLORING</span></div>
-  </div>
-  <div class="art"><div class="orb"><span class="orb-mark">stay curious</span></div><div class="art-caption">FORM FOLLOWS THOUGHT — 001</div></div>
-  <div class="scroll-cue" data-zh="向下探索" data-en="SCROLL TO EXPLORE">向下探索</div>
+<header class="wrap topbar">
+  <a class="brand" href="#home"><span class="brand-mark">李</span><span>LI GUOQING</span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#about"><span class="cn">关于</span><span class="en">About</span></a>
+    <a href="#ideas"><span class="cn">思想</span><span class="en">Ideas</span></a>
+    <a href="#works"><span class="cn">作品</span><span class="en">Works</span></a>
+    <a href="#journal"><span class="cn">日志</span><span class="en">Journal</span></a>
+    <button class="lang" id="langBtn" type="button" aria-label="Switch language">EN / 中文</button>
+  </nav>
 </header>
+<main>
+<section class="wrap hero" id="home">
+  <div class="hero-copy-wrap">
+    <div class="eyebrow"><span class="cn">个人主页 · 持续探索中</span><span class="en">PERSONAL SPACE · ALWAYS EXPLORING</span></div>
+    <h1>李国庆<span style="color:#9aaa8c">.</span></h1>
+    <p class="hero-sub"><span class="cn">一个不断学习、思考世界的人。</span><span class="en">A lifelong learner, thinking about the world.</span></p>
+    <p class="hero-copy"><span class="cn">学习不同领域的知识，尝试理解复杂的世界，并把思考转化为真实的作品。</span><span class="en">Exploring ideas across disciplines, making sense of a complex world, and turning reflection into meaningful work.</span></p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#works"><span class="cn">浏览我的作品</span><span class="en">Explore my work</span><span>↗</span></a>
+      <a class="btn secondary" href="#about"><span class="cn">认识这个空间</span><span class="en">About this space</span></a>
+    </div>
+  </div>
+  <div class="visual" aria-label="Abstract green sphere illustration"><div class="orb"></div><div class="visual-note">LEARN / THINK / CREATE</div></div>
+  <div class="scrollhint">SCROLL TO EXPLORE ↓</div>
+</section>
 
-<section class="section" id="about">
-  <div class="section-head reveal"><div><div class="index">01 / ABOUT</div><h2 data-zh="保持好奇，保持开放。" data-en="Stay curious. Stay open.">保持好奇，保持开放。</h2></div><p class="side-note" data-zh="关于这个空间<br>它不是一个完成品，而是一份持续更新的个人记录。" data-en="ABOUT THIS SPACE<br>Not a finished portrait, but an evolving personal record.">关于这个空间<br>它不是一个完成品，而是一份持续更新的个人记录。</p></div>
+<section class="section" id="about"><div class="wrap">
+  <div class="section-head reveal"><div><div class="section-no">01 / ABOUT</div><h2><span class="cn">关于这个空间</span><span class="en">A space for exploration</span></h2></div><p class="section-intro"><span class="cn">这里不试图给出一个固定的自我定义，而是展示持续学习、思考与创造的过程。</span><span class="en">Not a fixed definition of a person, but an evolving record of learning, reflection and creation.</span></p></div>
   <div class="about-grid reveal">
-    <div class="about-statement" data-zh="我更在意问题本身。答案会变化，而持续追问的能力值得长期保留。" data-en="I care about the questions themselves. Answers change; the ability to keep asking is worth holding on to.">我更在意问题本身。答案会变化，而持续追问的能力值得长期保留。</div>
-    <div><p class="body-copy" data-zh="我对知识、商业、投资与哲学保持兴趣，也喜欢观察社会与人的行为。这里会放下阶段性的理解、正在进行的项目，以及那些暂时没有答案的问题。" data-en="I am interested in knowledge, business, investing, and philosophy, and in observing society and human behavior. This space holds provisional ideas, ongoing projects, and questions that do not yet have answers.">我对知识、商业、投资与哲学保持兴趣，也喜欢观察社会与人的行为。这里会放下阶段性的理解、正在进行的项目，以及那些暂时没有答案的问题。</p><div class="values"><span>OPEN-MINDED</span><span>INDEPENDENT</span><span>IN PROGRESS</span></div></div>
+    <p class="quote"><span class="cn">“保持好奇，保持独立思考，保持行动。”</span><span class="en">“Stay curious. Think independently. Keep creating.”</span></p>
+    <div><p class="about-text"><span class="cn">我对世界始终抱有好奇。知识不应只停留在阅读和记忆里，也应该帮助我们理解现实、提出问题，并尝试解决问题。这个网站是一个开放的个人档案：记录值得保存的想法，整理认真完成的作品，也记录认知不断变化的轨迹。</span><span class="en">I remain curious about the world. Knowledge should go beyond reading and memorization: it should help us understand reality, ask better questions and attempt useful work. This site is an evolving archive of ideas, projects and changing perspectives.</span></p></div>
   </div>
-</section>
-
-<section class="section explore" id="explore">
-  <div class="section-head reveal"><div><div class="index">02 / EXPLORATION</div><h2 data-zh="持续探索的几个方向" data-en="A FEW DIRECTIONS I EXPLORE">持续探索的几个方向</h2></div><p class="side-note" data-zh="兴趣不是边界，而是理解世界的入口。" data-en="Interests are not boundaries, but entrances to understanding.">兴趣不是边界，而是理解世界的入口。</p></div>
-  <div class="explore-grid reveal">
-    <article class="topic"><div class="topic-no">01 — KNOWLEDGE</div><h3 data-zh="学习与认知" data-en="Learning & Ideas">学习与认知</h3><p data-zh="阅读、知识体系、跨学科学习，以及如何形成更清晰的判断。" data-en="Reading, knowledge systems, interdisciplinary learning, and clearer judgment.">阅读、知识体系、跨学科学习，以及如何形成更清晰的判断。</p></article>
-    <article class="topic"><div class="topic-no">02 — BUSINESS</div><h3 data-zh="商业与投资" data-en="Business & Investing">商业与投资</h3><p data-zh="观察企业、市场与经济运行，理解价值如何被创造和分配。" data-en="Observing companies, markets, and economies to understand how value is created and distributed.">观察企业、市场与经济运行，理解价值如何被创造和分配。</p></article>
-    <article class="topic"><div class="topic-no">03 — PHILOSOPHY</div><h3 data-zh="哲学与世界" data-en="Philosophy & World">哲学与世界</h3><p data-zh="关于人、社会、自由、意义，以及世界运行规律的持续追问。" data-en="Questions about people, society, freedom, meaning, and how the world works.">关于人、社会、自由、意义，以及世界运行规律的持续追问。</p></article>
+  <div class="principles reveal">
+    <div class="principle"><span class="tiny">01 / CURIOSITY</span><b><span class="cn">保持好奇</span><span class="en">Stay curious</span></b><p><span class="cn">持续接触新的问题与领域。</span><span class="en">Keep exploring new questions and fields.</span></p></div>
+    <div class="principle"><span class="tiny">02 / CLARITY</span><b><span class="cn">追求理解</span><span class="en">Seek clarity</span></b><p><span class="cn">不满足于结论，继续追问理由。</span><span class="en">Look beyond conclusions and ask why.</span></p></div>
+    <div class="principle"><span class="tiny">03 / PRACTICE</span><b><span class="cn">知行合一</span><span class="en">Learn by doing</span></b><p><span class="cn">把想法变成实践与作品。</span><span class="en">Turn ideas into practice and work.</span></p></div>
   </div>
-</section>
+</div></section>
 
-<section class="section" id="journal">
-  <div class="section-head reveal"><div><div class="index">03 / JOURNAL</div><h2 data-zh="思考仍在继续。" data-en="The thinking continues.">思考仍在继续。</h2></div></div>
-  <div class="journal-grid reveal"><div class="journal-quote" data-zh="“理解世界，也不断重新理解自己。”" data-en="“To understand the world, and to keep understanding oneself anew.”">“理解世界，也不断重新理解自己。”</div><p class="journal-detail" data-zh="这里将逐渐收录读书笔记、观察、阶段性思考与个人项目。不是结论陈列，而是一份持续更新的认知记录。" data-en="Reading notes, observations, evolving ideas, and personal projects will gradually find a home here. Not a display of final answers, but a record of an evolving mind.">这里将逐渐收录读书笔记、观察、阶段性思考与个人项目。不是结论陈列，而是一份持续更新的认知记录。</p></div>
-</section>
+<section class="section" id="ideas"><div class="wrap">
+  <div class="section-head reveal"><div><div class="section-no">02 / IDEAS</div><h2><span class="cn">思想与探索</span><span class="en">Fields of exploration</span></h2></div><p class="section-intro"><span class="cn">跨越学科边界，建立自己的理解框架。以下是持续探索的主题，而不是专业身份声明。</span><span class="en">Connecting perspectives across disciplines. These are ongoing interests, not claims of expertise.</span></p></div>
+  <div class="cards">
+    <article class="card reveal"><div class="card-top"><span class="tag">PHILOSOPHY</span><span class="tiny">A / 01</span></div><h3><span class="cn">哲学与人生</span><span class="en">Philosophy & life</span></h3><p><span class="cn">关于存在、自由、价值、认知与人生意义的思考。</span><span class="en">Questions of existence, freedom, value, knowledge and meaning.</span></p><div class="card-foot">QUESTION THE OBVIOUS ↗</div></article>
+    <article class="card reveal"><div class="card-top"><span class="tag">ECONOMICS</span><span class="tiny">A / 02</span></div><h3><span class="cn">经济与商业</span><span class="en">Economics & business</span></h3><p><span class="cn">观察市场、企业、制度与资源如何影响现实世界。</span><span class="en">Exploring markets, companies, institutions and the allocation of resources.</span></p><div class="card-foot">UNDERSTAND THE SYSTEM ↗</div></article>
+    <article class="card reveal"><div class="card-top"><span class="tag">SOCIETY</span><span class="tiny">A / 03</span></div><h3><span class="cn">社会与世界</span><span class="en">Society & the world</span></h3><p><span class="cn">从历史、科学与现实出发，理解社会运行的复杂性。</span><span class="en">Understanding society through history, science and observation.</span></p><div class="card-foot">SEE THE BIGGER PICTURE ↗</div></article>
+  </div>
+</div></section>
 
-<section class="section contact" id="contact">
-  <div class="contact-row reveal"><div><div class="index">04 / CONTACT</div><h2 data-zh="思想可以从一次交流开始。" data-en="An idea can begin with a conversation.">思想可以从一次交流开始。</h2></div><a class="contact-link" href="mailto:hello@example.com">SAY HELLO ↗</a></div>
-</section>
+<section class="section" id="works"><div class="wrap">
+  <div class="section-head reveal"><div><div class="section-no">03 / SELECTED WORK</div><h2><span class="cn">作品与实践</span><span class="en">Selected work</span></h2></div><p class="section-intro"><span class="cn">这里展示经过整理、可以公开分享的研究、项目与创作。新作品会逐步加入。</span><span class="en">A home for research, projects and creations that are ready to be shared.</span></p></div>
+  <div class="work-grid">
+    <article class="work reveal"><span class="tiny">01 / RESEARCH</span><h3><span class="cn">研究与分析</span><span class="en">Research & analysis</span></h3><p><span class="cn">用于收录专题研究、行业观察、商业分析与学习成果。</span><span class="en">A collection of topic research, industry observations and analytical work.</span></p><div class="status">作品持续整理中 · IN PROGRESS</div></article>
+    <article class="work reveal"><span class="tiny">02 / WRITING</span><h3><span class="cn">文章与随笔</span><span class="en">Essays & writing</span></h3><p><span class="cn">把零散的思考写清楚，让观点经得起时间与讨论。</span><span class="en">Giving shape to scattered thoughts and ideas through writing.</span></p><div class="status">等待添加公开文章 · COMING SOON</div></article>
+    <article class="work reveal"><span class="tiny">03 / DIGITAL</span><h3><span class="cn">数字项目</span><span class="en">Digital projects</span></h3><p><span class="cn">记录网站、工具、数据整理及其他数字化实践。</span><span class="en">Websites, tools, data projects and other digital experiments.</span></p><div class="status">持续构建 · BUILDING</div></article>
+    <article class="work reveal"><span class="tiny">04 / NOTES</span><h3><span class="cn">学习档案</span><span class="en">Learning archive</span></h3><p><span class="cn">整理阅读笔记、知识框架与值得反复思考的问题。</span><span class="en">Reading notes, knowledge maps and questions worth revisiting.</span></p><div class="status">持续积累 · COLLECTING</div></article>
+  </div>
+</div></section>
+
+<section class="section" id="journal"><div class="wrap">
+  <div class="section-head reveal"><div><div class="section-no">04 / JOURNAL</div><h2><span class="cn">最近记录</span><span class="en">Latest notes</span></h2></div><p class="section-intro"><span class="cn">一个持续更新的思考空间。这里将只放经过本人整理并决定公开的内容。</span><span class="en">An evolving journal. Only notes deliberately edited and chosen for public sharing belong here.</span></p></div>
+  <div class="journal reveal">
+    <div class="entry"><time>NOTE / 001</time><div><h3><span class="cn">关于学习：从获取信息到形成理解</span><span class="en">Learning: from information to understanding</span></h3><p><span class="cn">计划记录 · 尚未发布正文</span><span class="en">Planned topic · Article not yet published</span></p></div><span class="arrow">↗</span></div>
+    <div class="entry"><time>NOTE / 002</time><div><h3><span class="cn">关于思考：如何检验一个观点</span><span class="en">Thinking: how to examine an idea</span></h3><p><span class="cn">计划记录 · 尚未发布正文</span><span class="en">Planned topic · Article not yet published</span></p></div><span class="arrow">↗</span></div>
+    <div class="entry"><time>NOTE / 003</time><div><h3><span class="cn">关于行动：让想法产生真实结果</span><span class="en">Action: turning ideas into outcomes</span></h3><p><span class="cn">计划记录 · 尚未发布正文</span><span class="en">Planned topic · Article not yet published</span></p></div><span class="arrow">↗</span></div>
+  </div>
+</div></section>
+
+<section class="contact"><div class="wrap reveal"><div class="kicker">05 / CONNECT</div><h2><span class="cn">思想值得交流，作品欢迎讨论。</span><span class="en">Ideas are meant to be shared. Work is open to discussion.</span></h2><p><span class="cn">如果你对这里的某个主题或作品感兴趣，欢迎交流。</span><span class="en">If something here resonates with you, feel free to reach out.</span></p><a class="btn" href="#home"><span class="cn">回到首页</span><span class="en">Back to top</span> ↑</a></div></section>
 </main>
-<footer><span>© 2026 LI GUOQING</span><span data-zh="保持开放 · 保持思考" data-en="STAY OPEN · KEEP THINKING">保持开放 · 保持思考</span><span>BUILT AS A WORK IN PROGRESS</span></footer>
+<footer class="wrap footer"><span>© <span id="year"></span> LI GUOQING</span><span>LEARN · THINK · CREATE</span><span><span class="cn">持续更新中</span><span class="en">ALWAYS IN PROGRESS</span></span></footer>
 <script>
-let english=false;
-document.getElementById('lang').addEventListener('click',()=>{
-  english=!english;document.documentElement.lang=english?'en':'zh-CN';
-  document.querySelectorAll('[data-zh]').forEach(el=>{el.innerHTML=english?el.dataset.en:el.dataset.zh;});
-});
+const btn=document.getElementById('langBtn');
+btn.addEventListener('click',()=>{document.body.classList.toggle('english');document.documentElement.lang=document.body.classList.contains('english')?'en':'zh-CN';});
+document.getElementById('year').textContent=new Date().getFullYear();
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
