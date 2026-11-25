@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f4f2eb">
 <title>李国庆｜学习、思考与创造</title>
-<meta name="description" content="李国庆的个人网站：记录思想、学习、研究与作品。一个不断学习、思考世界的人。">
+<meta name="description" content="李国庆的个人网站：记录思想探索与作品实践。一个不断学习、思考世界的人。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,6 +16,14 @@
 @media(max-width:800px){.nav{gap:13px}.nav a{display:none}.hero{grid-template-columns:1fr;gap:10px;padding:65px 0 80px}.visual{height:300px;grid-row:1}.hero-copy-wrap{grid-row:2}.orb{width:245px}.scrollhint{display:none}.about-grid{grid-template-columns:1fr;gap:28px}.cards{grid-template-columns:1fr 1fr}.principles{grid-template-columns:1fr}.section{padding:72px 0}.section-head{display:block}.section-intro{margin-top:20px}.work-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.wrap{width:min(100% - 34px,1160px)}.topbar{height:66px}.cards,.work-grid{grid-template-columns:1fr}.card{min-height:205px}.entry{grid-template-columns:1fr 20px;gap:5px}.entry time{grid-column:1/-1;margin-bottom:6px}.entry h3{font-size:17px}.footer{flex-direction:column}.visual{height:260px}.hero{min-height:auto}.section-head{margin-bottom:32px}.article-row{grid-template-columns:1fr 20px;gap:5px}.article-row time{grid-column:1/-1}.article-row h4{font-size:16px}.modal{padding:24px 20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+.category-card{cursor:pointer}
+.category-card:after{content:"点击进入 ↗";position:absolute;right:20px;bottom:18px;font:10px var(--mono);letter-spacing:.06em;color:var(--green);opacity:.72}
+.resource-actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
+.resource-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--green);color:var(--green);font-size:12px;background:transparent}
+.resource-link:hover{background:var(--green);color:var(--white)}
+.empty-state{padding:22px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+
 </style>
 </head>
 <body>
@@ -25,7 +33,6 @@
     <a href="#about"><span class="cn">关于</span><span class="en">About</span></a>
     <a href="#ideas"><span class="cn">思想</span><span class="en">Ideas</span></a>
     <a href="#works"><span class="cn">作品</span><span class="en">Works</span></a>
-    <a href="#journal"><span class="cn">日志</span><span class="en">Journal</span></a>
     <button class="lang" id="langBtn" type="button" aria-label="Switch language">EN / 中文</button>
   </nav>
 </header>
@@ -57,49 +64,82 @@
   </div>
 </div></section>
 <section class="section" id="ideas"><div class="wrap">
-  <div class="section-head reveal"><div><div class="section-no">02 / IDEAS</div><h2><span class="cn">思想与探索</span><span class="en">Fields of exploration</span></h2></div><p class="section-intro"><span class="cn">跨越学科边界，建立自己的理解框架。以下是持续探索的主题，而不是专业身份声明。</span><span class="en">Connecting perspectives across disciplines. These are ongoing interests, not claims of expertise.</span></p></div>
+  <div class="section-head reveal"><div><div class="section-no">02 / IDEAS</div><h2><span class="cn">思想与探索</span><span class="en">Ideas & exploration</span></h2></div><p class="section-intro"><span class="cn">跨越学科边界，建立自己的理解框架。以下是持续探索的主题，而不是专业身份声明。</span><span class="en">Connecting perspectives across disciplines. These are ongoing interests, not claims of expertise.</span></p></div>
   <div class="cards">
-    <article class="card reveal interactive-card" tabindex="0" role="button" aria-label="查看哲学与人生详情" data-title="哲学与人生" data-detail="这里用于整理关于存在、自由、价值、认知与人生意义的阅读笔记和独立思考。后续可以添加文章、书目与专题研究。"><div class="card-top"><span class="tag">PHILOSOPHY</span><span class="tiny">A / 01</span></div><h3><span class="cn">哲学与人生</span><span class="en">Philosophy & life</span></h3><p><span class="cn">关于存在、自由、价值、认知与人生意义的思考。</span><span class="en">Questions of existence, freedom, value, knowledge and meaning.</span></p><div class="card-foot">QUESTION THE OBVIOUS ↗</div></article>
-    <article class="card reveal interactive-card" tabindex="0" role="button" aria-label="查看经济与商业详情" data-title="经济与商业" data-detail="这里用于收录市场、企业、商业模式、投资与制度观察。每篇内容可以逐步补充数据来源、分析过程和结论。"><div class="card-top"><span class="tag">ECONOMICS</span><span class="tiny">A / 02</span></div><h3><span class="cn">经济与商业</span><span class="en">Economics & business</span></h3><p><span class="cn">观察市场、企业、制度与资源如何影响现实世界。</span><span class="en">Exploring markets, companies, institutions and the allocation of resources.</span></p><div class="card-foot">UNDERSTAND THE SYSTEM ↗</div></article>
-    <article class="card reveal interactive-card" tabindex="0" role="button" aria-label="查看社会与世界详情" data-title="社会与世界" data-detail="这里用于记录从历史、科学与现实出发的观察，尝试理解社会运行的复杂性，并区分事实、观点与个人推断。"><div class="card-top"><span class="tag">SOCIETY</span><span class="tiny">A / 03</span></div><h3><span class="cn">社会与世界</span><span class="en">Society & the world</span></h3><p><span class="cn">从历史、科学与现实出发，理解社会运行的复杂性。</span><span class="en">Understanding society through history, science and observation.</span></p><div class="card-foot">SEE THE BIGGER PICTURE ↗</div></article>
-  </div>
-  <div class="article-list">
-    <div class="article-list-head"><h3><span class="cn">思想文章</span><span class="en">Published ideas</span></h3><p><span class="cn">由内容管理后台持续更新</span><span class="en">Updated through the publishing dashboard</span></p></div>
-    <div id="ideasList"><div class="load-message">正在读取文章……</div></div>
+    <article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="philosophy" aria-label="打开哲学与人生">
+      <div class="card-top"><span class="tag">PHILOSOPHY</span><span class="tiny">01 / IDEAS</span></div>
+      <h3><span class="cn">哲学与人生</span><span class="en">Philosophy & life</span></h3>
+      <p><span class="cn">关于存在、自由、价值、认知与人生意义的思考。</span><span class="en">Questions of existence, freedom, value, knowledge and meaning.</span></p>
+      <div class="card-foot">QUESTION THE OBVIOUS ↗</div>
+    </article>
+    <article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="economics" aria-label="打开经济与商业">
+      <div class="card-top"><span class="tag">ECONOMICS</span><span class="tiny">02 / IDEAS</span></div>
+      <h3><span class="cn">经济与商业</span><span class="en">Economics & business</span></h3>
+      <p><span class="cn">观察市场、企业、制度与资源如何影响现实世界。</span><span class="en">Exploring markets, companies, institutions and the allocation of resources.</span></p>
+      <div class="card-foot">UNDERSTAND THE SYSTEM ↗</div>
+    </article>
+    <article class="card reveal interactive-card category-card" tabindex="0" role="button" data-category="society" aria-label="打开社会与世界">
+      <div class="card-top"><span class="tag">SOCIETY</span><span class="tiny">03 / IDEAS</span></div>
+      <h3><span class="cn">社会与世界</span><span class="en">Society & the world</span></h3>
+      <p><span class="cn">从历史、科学与现实出发，理解社会运行的复杂性。</span><span class="en">Understanding society through history, science and observation.</span></p>
+      <div class="card-foot">SEE THE BIGGER PICTURE ↗</div>
+    </article>
   </div>
 </div></section>
+
 <section class="section" id="works"><div class="wrap">
-  <div class="section-head reveal"><div><div class="section-no">03 / SELECTED WORK</div><h2><span class="cn">作品与实践</span><span class="en">Selected work</span></h2></div><p class="section-intro"><span class="cn">这里展示经过整理、可以公开分享的研究、项目与创作。新作品会逐步加入。</span><span class="en">A home for research, projects and creations that are ready to be shared.</span></p></div>
+  <div class="section-head reveal"><div><div class="section-no">03 / PRACTICE</div><h2><span class="cn">作品与实践</span><span class="en">Works & practice</span></h2></div><p class="section-intro"><span class="cn">这里展示经过整理、可以公开分享的研究、项目与创作。新作品会逐步加入。</span><span class="en">A home for research, projects and creations that are ready to be shared.</span></p></div>
   <div class="work-grid">
-    <article class="work reveal interactive-card" tabindex="0" role="button" aria-label="查看研究与分析详情" data-title="研究与分析" data-detail="这里将展示专题研究、行业观察和商业分析。正式作品发布后，可以在这里添加摘要、发布日期和完整文章链接。"><span class="tiny">01 / RESEARCH</span><h3><span class="cn">研究与分析</span><span class="en">Research & analysis</span></h3><p><span class="cn">用于收录专题研究、行业观察、商业分析与学习成果。</span><span class="en">A collection of topic research, industry observations and analytical work.</span></p><div class="status">作品持续整理中 · IN PROGRESS</div></article>
-    <article class="work reveal interactive-card" tabindex="0" role="button" aria-label="查看文章与随笔详情" data-title="文章与随笔" data-detail="这里将收录经过整理并决定公开的文章与随笔。现在还没有正式发布的文章，后续可以逐篇添加。"><span class="tiny">02 / WRITING</span><h3><span class="cn">文章与随笔</span><span class="en">Essays & writing</span></h3><p><span class="cn">把零散的思考写清楚，让观点经得起时间与讨论。</span><span class="en">Giving shape to scattered thoughts and ideas through writing.</span></p><div class="status">等待添加公开文章 · COMING SOON</div></article>
-    <article class="work reveal interactive-card" tabindex="0" role="button" aria-label="查看数字项目详情" data-title="数字项目" data-detail="这里用于展示网站、工具、数据整理及其他数字化实践。可以为每个项目补充目标、过程、成果与演示链接。"><span class="tiny">03 / DIGITAL</span><h3><span class="cn">数字项目</span><span class="en">Digital projects</span></h3><p><span class="cn">记录网站、工具、数据整理及其他数字化实践。</span><span class="en">Websites, tools, data projects and other digital experiments.</span></p><div class="status">持续构建 · BUILDING</div></article>
-    <article class="work reveal interactive-card" tabindex="0" role="button" aria-label="查看学习档案详情" data-title="学习档案" data-detail="这里用于整理阅读笔记、知识框架和学习路径。建议每条记录注明主题、参考资料与自己的理解。"><span class="tiny">04 / NOTES</span><h3><span class="cn">学习档案</span><span class="en">Learning archive</span></h3><p><span class="cn">整理阅读笔记、知识框架与值得反复思考的问题。</span><span class="en">Reading notes, knowledge maps and questions worth revisiting.</span></p><div class="status">持续积累 · COLLECTING</div></article>
+    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="research" aria-label="打开研究与分析">
+      <span class="tiny">01 / RESEARCH</span><h3><span class="cn">研究与分析</span><span class="en">Research & analysis</span></h3>
+      <p><span class="cn">用于收录专题研究、行业观察、商业分析与学习成果。</span><span class="en">Topic research, industry observations and analytical work.</span></p>
+      <div class="status">作品持续整理中 · IN PROGRESS</div>
+    </article>
+    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="writing" aria-label="打开文章与随笔">
+      <span class="tiny">02 / WRITING</span><h3><span class="cn">文章与随笔</span><span class="en">Essays & writing</span></h3>
+      <p><span class="cn">把零散的思考写清楚，让观点经得起时间与讨论。</span><span class="en">Giving shape to scattered thoughts and ideas through writing.</span></p>
+      <div class="status">等待添加公开文章 · COMING SOON</div>
+    </article>
+    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="digital" aria-label="打开数字项目">
+      <span class="tiny">03 / DIGITAL</span><h3><span class="cn">数字项目</span><span class="en">Digital projects</span></h3>
+      <p><span class="cn">记录网站、工具、数据整理及其他数字化实践。</span><span class="en">Websites, tools, data projects and other digital experiments.</span></p>
+      <div class="status">持续构建 · BUILDING</div>
+    </article>
+    <article class="work reveal interactive-card category-card" tabindex="0" role="button" data-category="notes" aria-label="打开学习档案">
+      <span class="tiny">04 / NOTES</span><h3><span class="cn">学习档案</span><span class="en">Learning archive</span></h3>
+      <p><span class="cn">整理阅读笔记、知识框架与值得反复思考的问题。</span><span class="en">Reading notes, knowledge maps and questions worth revisiting.</span></p>
+      <div class="status">持续积累 · COLLECTING</div>
+    </article>
   </div>
 </div></section>
-<section class="section" id="journal"><div class="wrap">
-  <div class="section-head reveal"><div><div class="section-no">04 / JOURNAL</div><h2><span class="cn">最近记录</span><span class="en">Latest notes</span></h2></div><p class="section-intro"><span class="cn">一个持续更新的思考空间。这里将只放经过本人整理并决定公开的内容。</span><span class="en">An evolving journal. Only notes deliberately edited and chosen for public sharing belong here.</span></p></div>
-  <div class="journal reveal">
-    <div class="entry"><time>JOURNAL</time><div><h3><span class="cn">新的记录正在路上</span><span class="en">New notes are on the way</span></h3><p><span class="cn">已发布的思想文章会显示在上方「思想文章」栏目。</span><span class="en">Published ideas appear in the section above.</span></p></div><span class="arrow">↗</span></div>
-  </div>
-</div></section>
-<section class="contact"><div class="wrap reveal"><div class="kicker">05 / CONNECT</div><h2><span class="cn">思想值得交流，作品欢迎讨论。</span><span class="en">Ideas are meant to be shared. Work is open to discussion.</span></h2><p><span class="cn">如果你对这里的某个主题或作品感兴趣，欢迎交流。</span><span class="en">If something here resonates with you, feel free to reach out.</span></p><a class="btn" href="#home"><span class="cn">回到首页</span><span class="en">Back to top</span> ↑</a></div></section>
+<section class="contact"><div class="wrap reveal"><div class="kicker">04 / CONNECT</div><h2><span class="cn">思想值得交流，作品欢迎讨论。</span><span class="en">Ideas are meant to be shared. Work is open to discussion.</span></h2><p><span class="cn">如果你对这里的某个主题或作品感兴趣，欢迎交流。</span><span class="en">If something here resonates with you, feel free to reach out.</span></p><a class="btn" href="#home"><span class="cn">回到首页</span><span class="en">Back to top</span> ↑</a></div></section>
 </main>
 <div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal"><button class="modal-close" id="modalClose" type="button" aria-label="关闭">×</button><div class="modal-hint">DETAIL / 详情</div><h3 id="modalTitle"></h3><div id="modalMeta" class="article-meta"></div><div id="modalText" class="article-body"></div><div class="modal-hint">LI GUOQING · PERSONAL ARCHIVE</div></div>
 </div>
 <footer class="wrap footer"><span>© <span id="year"></span> LI GUOQING</span><span>LEARN · THINK · CREATE</span><span><span class="cn">持续更新中</span><span class="en">ALWAYS IN PROGRESS</span></span></footer>
 <script>
-const btn=document.getElementById('langBtn');
-btn.addEventListener('click',()=>{document.body.classList.toggle('english');document.documentElement.lang=document.body.classList.contains('english')?'en':'zh-CN';});
+const langBtn=document.getElementById('langBtn');
+langBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('english');
+  document.documentElement.lang=document.body.classList.contains('english')?'en':'zh-CN';
+});
 document.getElementById('year').textContent=new Date().getFullYear();
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+  }),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+}else{
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+}
 
 const modal=document.getElementById('detailModal');
 const modalTitle=document.getElementById('modalTitle');
 const modalText=document.getElementById('modalText');
 const modalMeta=document.getElementById('modalMeta');
+
 function openModal(title,content,meta='',isHtml=false){
   modalTitle.textContent=title;
   modalMeta.textContent=meta;
@@ -109,91 +149,164 @@ function openModal(title,content,meta='',isHtml=false){
   document.body.style.overflow='hidden';
   document.getElementById('modalClose').focus();
 }
-function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+function closeModal(){
+  modal.classList.remove('open');
+  document.body.style.overflow='';
+}
 document.getElementById('modalClose').addEventListener('click',closeModal);
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
-document.querySelectorAll('.interactive-card').forEach(card=>{
-  card.addEventListener('click',()=>openModal(card.dataset.title||'详情',card.dataset.detail||''));
-  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(card.dataset.title||'详情',card.dataset.detail||'');}});
-});
+modal.addEventListener('click',event=>{if(event.target===modal)closeModal();});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal();});
 
-const REPO_API='https://api.github.com/repos/shiyi4576-commits/li-guoqing-personal/contents/content/ideas';
+const REPO='shiyi4576-commits/li-guoqing-personal';
+const CATEGORY_CONFIG={
+  philosophy:{title:'哲学与人生',folder:'ideas',kind:'idea'},
+  economics:{title:'经济与商业',folder:'economics',kind:'idea'},
+  society:{title:'社会与世界',folder:'society',kind:'idea'},
+  research:{title:'研究与分析',folder:'research',kind:'work'},
+  writing:{title:'文章与随笔',folder:'articles',kind:'work'},
+  digital:{title:'数字项目',folder:'digital',kind:'work'},
+  notes:{title:'学习档案',folder:'notes',kind:'work'}
+};
+const loadedCache={};
+
 function escapeHTML(value){
-  return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  return String(value??'').replace(/[&<>"']/g,char=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[char]));
 }
 function parseMarkdownFile(source){
-  let text=source.replace(/^\uFEFF/,'');
-  const match=text.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*(?:\r?\n|$)/);
+  let body=String(source??'').replace(/^\uFEFF/,'');
+  const match=body.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*(?:\r?\n|$)/);
   const meta={};
   if(match){
     match[1].split(/\r?\n/).forEach(line=>{
       const m=line.match(/^([A-Za-z0-9_-]+)\s*:\s*(.*)$/);
       if(m) meta[m[1]]=m[2].trim().replace(/^["']|["']$/g,'');
     });
-    text=text.slice(match[0].length);
+    body=body.slice(match[0].length);
   }
-  return {title:meta.title||'未命名文章',date:meta.date||'',summary:meta.summary||'',body:text.trim()};
+  return {
+    title:meta.title||'未命名内容',
+    date:meta.date||'',
+    summary:meta.summary||meta.description||'',
+    file:meta.file||meta.attachment||'',
+    url:meta.url||meta.link||'',
+    body:body.trim()
+  };
 }
-function markdownToHTML(md){
-  const lines=md.replace(/\r/g,'').split('\n');
-  let out=[],paragraph=[],listType=null,listItems=[];
-  const flushParagraph=()=>{if(paragraph.length){out.push('<p>'+paragraph.map(escapeHTML).join('<br>')+'</p>');paragraph=[];}};
-  const flushList=()=>{if(listItems.length){out.push('<'+listType+'>'+listItems.map(x=>'<li>'+inlineMarkdown(x)+'</li>').join('')+'</'+listType+'>');listItems=[];listType=null;}};
-  function inlineMarkdown(s){
-    let x=escapeHTML(s);
-    x=x.replace(/`([^`]+)`/g,'<code>$1</code>');
-    x=x.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/__(.+?)__/g,'<strong>$1</strong>');
-    x=x.replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/_(.+?)_/g,'<em>$1</em>');
-    return x;
-  }
-  for(const raw of lines){
-    const line=raw.trim();
-    if(!line){flushParagraph();flushList();continue;}
+function safeUrl(value){
+  const raw=String(value||'').trim();
+  if(!raw) return '';
+  if(/^https?:\/\//i.test(raw)) return raw;
+  if(raw.startsWith('/')) return new URL(raw,window.location.origin).href;
+  return new URL(raw,window.location.href).href;
+}
+function inlineMarkdown(text){
+  let out=escapeHTML(text);
+  out=out.replace(/`([^`]+)`/g,'<code>$1</code>');
+  out=out.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  out=out.replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  out=out.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  return out;
+}
+function markdownToHTML(markdown){
+  const lines=String(markdown||'').replace(/\r/g,'').split('\n');
+  const out=[];
+  let paragraph=[],listType='';
+  const flushParagraph=()=>{
+    if(paragraph.length){out.push('<p>'+paragraph.map(inlineMarkdown).join('<br>')+'</p>');paragraph=[];}
+  };
+  const closeList=()=>{if(listType){out.push(listType==='ul'?'</ul>':'</ol>');listType='';}};
+  for(const rawLine of lines){
+    const line=rawLine.trim();
+    if(!line){flushParagraph();closeList();continue;}
     const heading=line.match(/^(#{1,3})\s+(.+)$/);
-    if(heading){flushParagraph();flushList();const level=heading[1].length;out.push('<h'+level+'>'+inlineMarkdown(heading[2])+'</h'+level+'>');continue;}
-    const item=line.match(/^[-*]\s+(.+)$/)||line.match(/^\d+\.\s+(.+)$/);
-    if(item){flushParagraph();const type=/^\d+\./.test(line)?'ol':'ul';if(listType&&listType!==type)flushList();listType=type;listItems.push(item[1]);continue;}
-    if(line.startsWith('>')){flushParagraph();flushList();out.push('<blockquote>'+inlineMarkdown(line.replace(/^>\s?/,''))+'</blockquote>');continue;}
-    flushList();paragraph.push(line);
+    if(heading){flushParagraph();closeList();const level=heading[1].length;out.push(`<h${level}>${inlineMarkdown(heading[2])}</h${level}>`);continue;}
+    const bullet=line.match(/^[-*]\s+(.+)$/);
+    const numbered=line.match(/^\d+\.\s+(.+)$/);
+    if(bullet||numbered){
+      flushParagraph();const wanted=bullet?'ul':'ol';
+      if(listType!==wanted){closeList();out.push(wanted==='ul'?'<ul>':'<ol>');listType=wanted;}
+      out.push('<li>'+inlineMarkdown((bullet||numbered)[1])+'</li>');continue;
+    }
+    if(line.startsWith('>')){
+      flushParagraph();closeList();out.push('<blockquote>'+inlineMarkdown(line.replace(/^>\s?/,''))+'</blockquote>');continue;
+    }
+    paragraph.push(line);
   }
-  flushParagraph();flushList();
-  return out.join('\n');
+  flushParagraph();closeList();
+  return out.join('');
 }
-async function loadIdeas(){
-  const container=document.getElementById('ideasList');
+function buildResourceActions(item){
+  const links=[];
+  const fileUrl=safeUrl(item.file);
+  const externalUrl=safeUrl(item.url);
+  if(fileUrl) links.push(`<a class="resource-link" href="${escapeHTML(fileUrl)}" target="_blank" rel="noopener noreferrer">打开 / 下载附件 ↗</a>`);
+  if(externalUrl) links.push(`<a class="resource-link" href="${escapeHTML(externalUrl)}" target="_blank" rel="noopener noreferrer">访问项目 ↗</a>`);
+  return links.length?'<div class="resource-actions">'+links.join('')+'</div>':'';
+}
+async function fetchCategory(categoryKey){
+  if(loadedCache[categoryKey]) return loadedCache[categoryKey];
+  const config=CATEGORY_CONFIG[categoryKey];
+  const api=`https://api.github.com/repos/${REPO}/contents/content/${config.folder}`;
+  const response=await fetch(api,{headers:{'Accept':'application/vnd.github+json'}});
+  if(response.status===404){loadedCache[categoryKey]=[];return [];}
+  if(!response.ok) throw new Error('GitHub API '+response.status);
+  const files=await response.json();
+  const markdownFiles=files.filter(file=>file.type==='file'&&file.name.toLowerCase().endsWith('.md'));
+  const items=await Promise.all(markdownFiles.map(async file=>{
+    const result=await fetch(file.download_url);
+    if(!result.ok) throw new Error('无法读取文件 '+file.name);
+    return {...parseMarkdownFile(await result.text()),fileName:file.name};
+  }));
+  items.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  loadedCache[categoryKey]=items;
+  return items;
+}
+function showItem(categoryKey,item){
+  const config=CATEGORY_CONFIG[categoryKey];
+  const actions=config.kind==='work'?buildResourceActions(item):'';
+  const body=markdownToHTML(item.body);
+  const html=actions+body;
+  openModal(item.title,html,item.date?'PUBLISHED / '+item.date:config.title,true);
+}
+async function openCategory(categoryKey){
+  const config=CATEGORY_CONFIG[categoryKey];
+  openModal(config.title,'正在读取内容……','LOADING');
   try{
-    const response=await fetch(REPO_API,{headers:{'Accept':'application/vnd.github+json'}});
-    if(!response.ok) throw new Error('GitHub API '+response.status);
-    const files=await response.json();
-    const markdownFiles=files.filter(file=>file.type==='file'&&file.name.toLowerCase().endsWith('.md'));
-    if(!markdownFiles.length){container.innerHTML='<div class="load-message">暂时还没有发布的文章。你可以在 Pages CMS 的「思想」栏目中新增文章。</div>';return;}
-    const articles=await Promise.all(markdownFiles.map(async file=>{
-      const r=await fetch(file.download_url);
-      if(!r.ok) throw new Error('无法读取文章：'+file.name);
-      return {...parseMarkdownFile(await r.text()),fileName:file.name};
-    }));
-    articles.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-    container.innerHTML=articles.map((article,index)=>`
-      <article class="article-row" tabindex="0" role="button" data-article-index="${index}">
-        <time>${escapeHTML(article.date||'IDEA')}</time>
-        <div><h4>${escapeHTML(article.title)}</h4><p>${escapeHTML(article.summary||'点击阅读文章')}</p></div>
+    const items=await fetchCategory(categoryKey);
+    if(!items.length){
+      modalMeta.textContent='CONTENT / 内容归档';
+      modalText.innerHTML='<div class="empty-state">这个分类暂时还没有发布内容。你可以在 Pages CMS 对应栏目中新增内容，保存后刷新网站即可看到。</div>';
+      return;
+    }
+    modalMeta.textContent=`${items.length} ITEMS / ${config.kind==='idea'?'思想文章':'作品档案'}`;
+    modalText.innerHTML=items.map((item,index)=>`
+      <article class="article-row category-entry" tabindex="0" role="button" data-index="${index}">
+        <time>${escapeHTML(item.date||'ARCHIVE')}</time>
+        <div><h4>${escapeHTML(item.title)}</h4><p>${escapeHTML(item.summary||'点击查看详情')}</p></div>
         <span class="article-arrow">↗</span>
       </article>`).join('');
-    container.querySelectorAll('.article-row').forEach(row=>{
-      const show=()=>{
-        const article=articles[Number(row.dataset.articleIndex)];
-        openModal(article.title,markdownToHTML(article.body),article.date?'PUBLISHED / '+article.date:'PUBLISHED IDEA',true);
-      };
-      row.addEventListener('click',show);
-      row.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show();}});
+    modalText.querySelectorAll('.category-entry').forEach(row=>{
+      const open=()=>showItem(categoryKey,items[Number(row.dataset.index)]);
+      row.addEventListener('click',open);
+      row.addEventListener('keydown',event=>{
+        if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
+      });
     });
   }catch(error){
     console.error(error);
-    container.innerHTML='<div class="load-message">暂时无法读取文章。请确认仓库为公开状态，并检查 content/ideas 文件夹中是否有 Markdown 文件。稍后刷新页面再试。</div>';
+    modalMeta.textContent='LOAD ERROR / 读取失败';
+    modalText.innerHTML='<div class="empty-state">暂时无法读取这个分类。请确认 GitHub 仓库为公开状态、文件夹名称正确，并稍后刷新重试。</div>';
   }
 }
-loadIdeas();
+document.querySelectorAll('.category-card').forEach(card=>{
+  const open=()=>openCategory(card.dataset.category);
+  card.addEventListener('click',open);
+  card.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();open();}
+  });
+});
 </script>
 </body>
 </html>
